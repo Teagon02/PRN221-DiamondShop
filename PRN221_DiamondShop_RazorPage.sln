@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diamond.DataAccess", "Diamond.DataAccess\Diamond.DataAccess.csproj", "{BFCFF94A-8A53-4A22-92A3-A9F14FCC7764}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diamond.DataAccess", "Diamond.DataAccess\Diamond.DataAccess.csproj", "{BFCFF94A-8A53-4A22-92A3-A9F14FCC7764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diamond.BusinessLogic", "Diamond.BusinessLogic\Diamond.BusinessLogic.csproj", "{B587CE60-0D50-43E8-AD49-534D5AE3E672}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diamond.BusinessLogic", "Diamond.BusinessLogic\Diamond.BusinessLogic.csproj", "{B587CE60-0D50-43E8-AD49-534D5AE3E672}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diamond.RazorPage", "Diamond.RazorPage\Diamond.RazorPage.csproj", "{6B2602F6-39BA-4A62-94E8-A49FF5A5BF41}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Diamond.RazorPage", "Diamond.RazorPage\Diamond.RazorPage.csproj", "{6B2602F6-39BA-4A62-94E8-A49FF5A5BF41}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

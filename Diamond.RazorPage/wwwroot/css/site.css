@@ -1,18 +1,81 @@
+﻿/* Base font size */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
+/* Media query for larger screens */
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Body styling */
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    font-family: "Century Gothic" !important;
+}
+
+/* Navigation link styling */
+.nav-link {
+    font-size: 15px !important;
+    color: darkblue !important;
+}
+
+/* Input and textarea styling */
+input.form-control,
+textarea.form-control {
+    background-color: #f0f0f0; /* Background color */
+    color: #333; /* Text color */
+    border-color: #ccc; /* Border color */
+    border-radius: 4px; /* Rounded borders */
+}
+
+/* Button styling */
+.btn {
+    background-color: #007bff; /* Background color */
+    color: #fff; /* Text color */
+    border-color: #007bff; /* Border color */
+    border-radius: 4px; /* Rounded borders */
+}
+
+    /* Hover state for buttons */
+    .btn:hover {
+        background-color: #0056b3; /* Background color on hover */
+        color: #fff; /* Text color on hover */
+        border-color: #0056b3; /* Border color on hover */
+    }
+
+/* Link styling */
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+    /* Hover state for links */
+    a:hover {
+        color: #0056b3; /* Link color on hover */
+        text-decoration: underline; /* Add underline on hover */
+    }
+
+/* Product name styling */
+.product-name {
+    font-family: Arial, sans-serif; /* Font family */
+    font-size: 18px; /* Font size */
+    font-weight: bold; /* Font weight */
+    color: #333; /* Font color */
+}
+
+/* Custom background styling */
+.custom-bg {
+    background-color: #e9ecef; /* Slightly darker gray background */
+    padding: 1.5rem; /* Padding */
+    border-radius: 0.5rem; /* Rounded borders */
+}
+
+/* Image border styling */
+.img-border-bold {
+    border: 3px solid #343a40; /* Dark border for images */
 }

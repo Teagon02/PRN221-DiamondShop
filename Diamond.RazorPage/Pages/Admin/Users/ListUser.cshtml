@@ -1,0 +1,118 @@
+﻿@page
+@model Diamond.RazorPage.Pages.Admin.Users.ListUserModel
+@{
+    ViewData["Title"] = "List of Users";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    <link href="~/css/site.css" rel="stylesheet" /> <!-- Thêm thẻ link này để áp dụng CSS từ site.css -->
+  
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Users</h2>
+        <div class="row mb-4">
+            <div class="col text-right">
+                <a class="btn btn-success" href="/Admin/Users/CreateUser">Create <i class="bi bi-plus-circle"></i></a>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr style="font-size: small">
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Name</th>
+                        <th>Avatar</th>
+                        <th>Phone</th>
+                        <th>Address</th>
+                        <th>Created On</th>
+                        <th >Status</th>
+                        <th class="d-flex justify-content-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.PagedUsers.Items)
+                    {
+                        <tr style="font-size: small">
+                            <td class="align-middle">
+                                <div class="d-flex justify-content-center">
+                                    @user.Id
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                
+                                <div class="d-flex justify-content-center">
+                                    @user.Email
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <div class="d-flex justify-content-center">
+                                    @user.Name
+                                </div>
+                            </td>
+                            <td style="width: 150px"><img src="/users/@user.Avatar" width="100%" height="110px" class="align-content-center" /></td>
+                            <td class="align-middle">
+                                <div class="d-flex justify-content-center">
+                                    @user.Phone
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <div class="d-flex justify-content-center">
+                                    @user.Address
+                                </div>
+                            </td>
+                            <td class="align-middle">
+                                <div class="d-flex justify-content-center">
+                                    @user.CreateOn.ToString("MM/dd/yyyy")
+                                </div>
+                            </td>
+                            <td class="align-middle" style="font-weight:bold">
+                                <div class="d-flex justify-content-center">
+                                    @user.Status
+                                </div>
+                            </td>
+                            <td class="align-middle" style="white-space: nowrap;">
+                                <div class="d-flex justify-content-center">
+                                    <!-- In your Razor Page -->
+                                    <a class="btn btn-sm mr-2 mx-2 custom-danger-btn" href="/Admin/Users/DeleteUser?id=@user.Id">
+                                        <i class="bi bi-trash3-fill"></i>
+                                    </a>
+                                    <a class="btn btn-info btn-sm" href="/Admin/Users/UpdateUser?id=@user.Id"><i class="bi bi-pencil-square"></i></a>
+
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                        <a class="page-link" asp-page="./ListUser" asp-route-pageIndex="@(Model.CurrentPage - 1)">Previous</a>
+                    </li>
+                    @for (int i = 1; i <= Model.PagedUsers.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                            <a class="page-link" asp-page="./ListUser" asp-route-pageIndex="@i">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(Model.CurrentPage == Model.PagedUsers.TotalPages ? "disabled" : "")">
+                        <a class="page-link" asp-page="./ListUser" asp-route-pageIndex="@(Model.CurrentPage + 1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+ 
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

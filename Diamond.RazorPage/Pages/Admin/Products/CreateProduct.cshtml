@@ -1,0 +1,158 @@
+﻿@page
+@model Diamond.RazorPage.Pages.Admin.Products.CreateProductModel
+@{
+    ViewData["Title"] = "Create Product";
+}
+<div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-header text-center">
+                <h2 class="text-center mb-5 text-primary fw-bold fs-3">Create Product</h2>
+            </div>
+            <div class="card-body">
+                @if (!string.IsNullOrEmpty(Model.erroMessage))
+                {
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>@Model.erroMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+                else if (!string.IsNullOrEmpty(Model.successMessage))
+                {
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>@Model.successMessage</strong>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                }
+
+                <form method="post" enctype="multipart/form-data">
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.Name" />
+                            <span asp-validation-for="ProductDTO.Name" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Description</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" asp-for="ProductDTO.Description"></textarea>
+                            <span asp-validation-for="ProductDTO.Description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Main Stone Size</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.MainStoneSize" />
+                            <span asp-validation-for="ProductDTO.MainStoneSize" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Side Stone Type</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.SideStoneType" />
+                            <span asp-validation-for="ProductDTO.SideStoneType" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Side Stone Quantity</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.SideStoneQuantity" />
+                            <span asp-validation-for="ProductDTO.SideStoneQuantity" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Side Stone Weight</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.SideStoneWeight" />
+                            <span asp-validation-for="ProductDTO.SideStoneWeight" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Gold Type</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.GoldType" />
+                            <span asp-validation-for="ProductDTO.GoldType" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Gold Karat</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.GoldKarat" />
+                            <span asp-validation-for="ProductDTO.GoldKarat" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Gold Weight</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.GoldWeight" />
+                            <span asp-validation-for="ProductDTO.GoldWeight" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Status</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" asp-for="ProductDTO.Status">
+                                <option value="true">Active</option>
+                                <option value="false">Inactive</option>
+                            </select>
+                            <span asp-validation-for="ProductDTO.Status" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Product Images</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ImageDTO.Images" type="file" multiple />
+                            <span asp-validation-for="ImageDTO.Images" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Price</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="ProductDTO.Price" />
+                            <span asp-validation-for="ProductDTO.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                        <label class="col-sm-4 col-form-label">Category</label>
+                        <div class="col-sm-8">
+                            <select class="form-control" asp-for="ProductDTO.CategoryId">
+                                <option value="">Select a Category</option>
+                                @foreach (var category in Model.Categories)
+                                {
+                                    <option value="@category.CategoryId">@category.CategoryName</option>
+                                }
+                            </select>
+                            <span asp-validation-for="ProductDTO.CategoryId" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-4 offset-sm-4 d-grid">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        <div class="col-sm-4 d-grid">
+                            <a class="btn btn-outline-secondary" href="/Admin/Users/ListUser" role="button">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

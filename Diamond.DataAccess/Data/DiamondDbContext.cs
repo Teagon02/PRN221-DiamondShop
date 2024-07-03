@@ -7,7 +7,7 @@ namespace Diamond.DataAccess.Data
     public class DiamondDbContext : DbContext
     {
         public DiamondDbContext(DbContextOptions<DiamondDbContext> options) : base(options) { }
-
+        public DiamondDbContext() { }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Inventory> Inventories { get; set; }

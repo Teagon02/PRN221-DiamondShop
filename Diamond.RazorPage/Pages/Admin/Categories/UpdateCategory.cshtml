@@ -1,0 +1,54 @@
+﻿@page
+@model Diamond.RazorPage.Pages.Admin.Categories.UpdateCategoryModel
+@{
+    ViewData["Title"] = "Update Category";
+}
+
+<div class="container mt-5 custom-bg">
+    <h2 class="text-center mb-5 text-primary fw-bold fs-3">Update Category</h2>
+
+    @if (Model.Category != null)
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <form method="post" enctype="multipart/form-data">
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">ID</label>
+                        <div class="col-sm-8">
+                            <input readonly class="form-control-plaintext" value="@Model.Category.CategoryId">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Name</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" asp-for="CategoryDTO.CategoryName" />
+                            <span asp-validation-for="CategoryDTO.CategoryName" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Description</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" asp-for="CategoryDTO.Description"></textarea>
+                            <span asp-validation-for="CategoryDTO.Description" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="offset-sm-4 col-sm-4 d-grid">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        <div class="col-sm-4 d-grid">
+                            <a class="btn btn-outline-primary" href="/Admin/Categories/ListCategory" role="button">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p class="text-danger">Category not found.</p>
+    }
+</div>

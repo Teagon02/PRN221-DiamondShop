@@ -1,4 +1,10 @@
+// Startup.cs
+
+using Diamond.BusinessLogic.IServices;
+using Diamond.BusinessLogic.Services;
 using Diamond.DataAccess.Data;
+using Diamond.DataAccess.IRepositories;
+using Diamond.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,7 +15,14 @@ builder.Services.AddDbContext<DiamondDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DiamondConnection"));
 });
+builder.Services.AddTransient<IUserRepository, UserRepository>(); 
+builder.Services.AddTransient<IUserService, UserService>();
 
+builder.Services.AddTransient<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<IProductService, ProductService>();
+
+builder.Services.AddTransient<ICategoryService, CategoryService>();
+builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

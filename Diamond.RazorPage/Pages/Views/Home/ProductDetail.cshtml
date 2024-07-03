@@ -1,0 +1,84 @@
+﻿@page 
+@model Diamond.RazorPage.Pages.Views.Home.ProductDetailModel
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<div class="container">
+    <div class="row">
+        <h1>Jewelry detail</h1>
+        <!-- Image Section -->
+        <div class="col-md-6">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    @foreach (var imageUrl in Model.Product.Images.Select(i => i.Url))
+                    {
+                        <div class="carousel-item @(imageUrl == Model.Product.Images.Select(i => i.Url).First() ? "active" : "")">
+                            <img src="~/products/@imageUrl" class="d-block w-75 border img-thumbnail" alt="Product Image">
+                        </div>
+                    }
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h1>@Model.ProductDTO.Name</h1>
+            <p>@Model.ProductDTO.Description</p>
+            <p>Price: $@Model.ProductDTO.Price</p>
+            <div class="row">
+                <div></div>
+                <div class="col-md-4">
+                    <button class="btn btn-outline-primary">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+            <table class="list-group">
+                <tr>
+                    <td style="font-weight:700; width: 200px">Category</td>
+                    <td>@Model.Product.Category.CategoryName</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700">Main Stone Size</td>
+                    <td>@Model.Product.MainStoneSize</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700">Side Stone Quantity</td>
+                    <td>@Model.Product.SideStoneQuantity</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700">Side Stone Weight</td>
+                    <td> @Model.Product.SideStoneWeight</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700">Gold Type</td>
+                    <td> @Model.Product.GoldType</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700">Gold Karat</td>
+                    <td>@Model.Product.GoldKarat</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:700">Gold Karat</td>
+                    <td>@Model.Product.GoldKarat</td>
+                </tr>
+
+                <tr>
+                    <td style="font-weight:700">Gold Weight</td>
+                    <td>@Model.Product.GoldWeight</td>
+                </tr>
+               
+              
+            </table>
+        </div>
+        
+        
+    </div>
+</div>

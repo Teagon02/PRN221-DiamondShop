@@ -4,27 +4,68 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Diamond.RazorPage</title>
+
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Site-specific CSS -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Diamond.RazorPage.styles.css" asp-append-version="true" />
+
+    <!-- Bootstrap Icons CSS -->
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" /> 
 </head>
+
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-white bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index">Diamond.RazorPage</a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"> <img src="~/images/Loi-ich-cua-viec-thiet-ke-logo-trang-suc-dep.jpg" class="w-80" alt="Logo" style="height: 75px ;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                        <li class="nav-item dropdown">
+                          <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-gear"></i> Adminitration
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-light">
+                                <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory">Categories</a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts">Products</a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser">Users</a></li>
+                            </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i>Home</a>
                         </li>
+
+                  
+
+                    </ul>
+                </div>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav" style="margin-left:auto">
+                        <li class="nav-item dropdown">
+                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i> User
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-light">
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Log out</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                        </li>
+                    
+
                     </ul>
                 </div>
             </div>
@@ -44,7 +85,10 @@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+   
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
