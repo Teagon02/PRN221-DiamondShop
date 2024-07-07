@@ -1,4 +1,5 @@
-﻿using Diamond.DataAccess.Models;
+﻿using Diamond.DataAccess.DTO;
+using Diamond.DataAccess.Models;
 using Diamond.DataAccess.PageList;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace Diamond.BusinessLogic.IServices
 {
     public interface IProductService
     {
+        PagedResult<Product> GetProductsByCategory(int categoryId, int pageIndex, int pageSize);
         IList<Product> GetAll();
         Product GetProductById(int? id);
         List<Image> GetImagesByProductId(int? productId);
@@ -18,6 +20,7 @@ namespace Diamond.BusinessLogic.IServices
         Task AddImage(Image image);
         Task SaveChangesAsync();
         PagedResult<Product> GetAllpage(int page, int pageSize);
+        Task<IList<ProductPriceDTO>> Dashboardlist();
 
     }
 }

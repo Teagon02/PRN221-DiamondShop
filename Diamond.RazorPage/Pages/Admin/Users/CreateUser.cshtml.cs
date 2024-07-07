@@ -75,7 +75,7 @@ namespace Diamond.RazorPage.Pages.Admin.Users
                 Phone = UserDTO.Phone,
             };
            await  _userService.CreateAsync(user);
-          await   _userService.SaveChangesAsync();
+           await   _userService.SaveChangesAsync();
 
             UserDTO.Email = "";
             UserDTO.Name = "";

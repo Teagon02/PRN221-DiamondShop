@@ -1,0 +1,109 @@
+﻿@page
+@model Diamond.RazorPage.Pages.Admin.Dashboard.DashBoardModel
+@{
+    ViewData["Title"] = "Product Price Comparison";
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Product Price Comparison</h2>
+
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <h4 class="text-center">Line Chart</h4>
+            <canvas id="barChart" style="max-width:100%; max-height:400px;"></canvas>
+        </div>
+        <div class="col-md-6 mb-4">
+            <h4 class="text-center">Pie Chart</h4>
+            <canvas id="pieChart" style="max-width:100%; max-height:400px;"></canvas>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var ctx1 = document.getElementById('barChart').getContext('2d');
+            var ctx2 = document.getElementById('pieChart').getContext('2d');
+
+            // Biểu đồ bar chart
+            var barChart = new Chart(ctx1, {
+                type: 'line',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.ProductPrices.Select(p => p.Name))),
+                    datasets: [{
+                        label: 'Price',
+                        data: @Html.Raw(Json.Serialize(Model.ProductPrices.Select(p => p.Price))),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            ticks: {
+                                display: false // Ẩn chữ trên trục x
+                            }
+                        },
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+       
+
+            // Biểu đồ pie chart
+            var pieChart = new Chart(ctx2, {
+                type: 'pie',
+                data: {
+                    labels: @Html.Raw(Json.Serialize(Model.ProductPrices.Select(p => p.Name))),
+                    datasets: [{
+                        label: 'Price',
+                        data: @Html.Raw(Json.Serialize(Model.ProductPrices.Select(p => p.Price))),
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)',
+                            'rgba(153, 102, 255, 0.2)',
+                            'rgba(255, 159, 64, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                            'rgba(255, 206, 86, 1)',
+                            'rgba(75, 192, 192, 1)',
+                            'rgba(153, 102, 255, 1)',
+                            'rgba(255, 159, 64, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+}

@@ -20,7 +20,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-white bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"> <img src="~/images/Loi-ich-cua-viec-thiet-ke-logo-trang-suc-dep.jpg" class="w-80" alt="Logo" style="height: 75px ;"></a>
+                <a class="navbar-brand" asp-area="" asp-page="/Index"> <img src="~/images/jewelry-logo-design.jpg" class="w-200" alt="Logo" style="height: 75px ;"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -32,13 +32,18 @@
                                 <i class="bi bi-gear"></i> Adminitration
                             </button>
                             <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory">Categories</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts">Products</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser">Users</a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory"><i class="bi bi-tag"></i> Categories</a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts"><i class="bi bi-gem"></i> Products</a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser"><i class="bi bi-people-fill"></i> Users</a></li>
+                                <li><a class="dropdown-item" asp-page="/Admin/Dashboard/DashBoard"> <i class="bi bi-speedometer2"></i> DashBoard</a></li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="/Views/AboutUs">About Us</a>
                         </li>
 
                   
@@ -78,6 +83,7 @@
     </div>
 
     <footer class="border-top footer text-muted">
+       
         <div class="container">
             &copy; 2024 - Diamond.RazorPage - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>

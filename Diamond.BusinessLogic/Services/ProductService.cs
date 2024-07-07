@@ -1,4 +1,5 @@
 ﻿using Diamond.BusinessLogic.IServices;
+using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.IRepositories;
 using Diamond.DataAccess.Models;
 using Diamond.DataAccess.PageList;
@@ -29,6 +30,11 @@ namespace Diamond.BusinessLogic.Services
             _productrepo.CreateAsync(product);
         }
 
+        public async Task<IList<ProductPriceDTO>>Dashboardlist()
+        {
+           return await _productrepo.Dashboardlist();
+        }
+
         public IList<Product> GetAll()
         {
             return _productrepo.GetAll();
@@ -50,9 +56,16 @@ namespace Diamond.BusinessLogic.Services
             return _productrepo.GetImagesByProductId(productId);
         }
 
+      
+
         public Product GetProductById(int? id)
         {
             return _productrepo.GetProductById(id);
+        }
+
+        public PagedResult<Product> GetProductsByCategory(int categoryId, int pageIndex, int pageSize)
+        {
+            return _productrepo.GetProductsByCategory(categoryId, pageIndex, pageSize);
         }
 
         public async Task SaveChangesAsync()

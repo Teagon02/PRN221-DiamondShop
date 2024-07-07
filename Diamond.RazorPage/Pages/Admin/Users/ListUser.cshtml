@@ -74,13 +74,13 @@
                             </td>
                             <td class="align-middle" style="font-weight:bold">
                                 <div class="d-flex justify-content-center">
-                                    @user.Status
+                                    @(user.Status ? "Active" : "Inactive")
                                 </div>
                             </td>
                             <td class="align-middle" style="white-space: nowrap;">
                                 <div class="d-flex justify-content-center">
                                     <!-- In your Razor Page -->
-                                    <a class="btn btn-sm mr-2 mx-2 custom-danger-btn" href="/Admin/Users/DeleteUser?id=@user.Id">
+                                    <a class="btn btn-sm mr-2 mx-2" href="/Admin/Users/DeleteUser?id=@user.Id" style="background: red; border: none">
                                         <i class="bi bi-trash3-fill"></i>
                                     </a>
                                     <a class="btn btn-info btn-sm" href="/Admin/Users/UpdateUser?id=@user.Id"><i class="bi bi-pencil-square"></i></a>

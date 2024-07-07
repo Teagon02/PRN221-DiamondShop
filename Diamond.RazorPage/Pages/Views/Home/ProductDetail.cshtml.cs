@@ -1,6 +1,7 @@
 using Diamond.BusinessLogic.IServices;
 using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.Models;
+using Diamond.DataAccess.PageList;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -10,6 +11,9 @@ namespace Diamond.RazorPage.Pages.Views.Home
     {
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
+        public PagedResult<Product> PageProducts { get; set; }
+        public int CurrentPage { get; set; }
+        public int PageSize { get; set; } = 6;
         public ProductDetailModel(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
@@ -21,7 +25,10 @@ namespace Diamond.RazorPage.Pages.Views.Home
         public IList<Category> Categories { get; set; } // Initialize this properly
 
         public Product Product { get; set; }
-        public void OnGet(int id)
+        public IList<Product> Products { get; private set; }
+        public Category Category { get; private set; }
+
+        public void OnGet(int id , int pageIndex = 1)
         {
             Categories = _categoryService.GetAll(); // Populate Categories
 
@@ -56,6 +63,15 @@ namespace Diamond.RazorPage.Pages.Views.Home
 
             Product = product;
             Product.Images = images;
+            CurrentPage = pageIndex;
+            PageProducts = _productService.GetProductsByCategory(product.CategoryId, CurrentPage, PageSize);
+
         }
+        //public void OnGet(string categoryName)
+        //{
+        //    Products = _productService.GetProductByCategory(categoryName);
+
+        //}
+
     }
 }
