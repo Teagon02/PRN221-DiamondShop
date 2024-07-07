@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="~/Diamond.RazorPage.styles.css" asp-append-version="true" />
 
     <!-- Bootstrap Icons CSS -->
-    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" /> 
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -28,48 +28,42 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item dropdown">
-                          <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-gear"></i> Adminitration
+                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-gear"></i> ADMINISTRATION
                             </button>
                             <ul class="dropdown-menu dropdown-menu-light">
                                 <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory"><i class="bi bi-tag"></i> Categories</a></li>
                                 <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts"><i class="bi bi-gem"></i> Products</a></li>
                                 <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser"><i class="bi bi-people-fill"></i> Users</a></li>
                                 <li><a class="dropdown-item" asp-page="/Admin/Dashboard/DashBoard"> <i class="bi bi-speedometer2"></i> DashBoard</a></li>
-
                             </ul>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i>Home</a>
+                            <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i> HOME</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Views/AboutUs">About Us</a>
+                            <a class="nav-link text-dark" href="/Views/AboutUs"> ABOUT US</a>
                         </li>
-
-                  
-
                     </ul>
                 </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav" style="margin-left:auto">
                         <li class="nav-item dropdown">
                             <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle"></i> User
+                                <i class="bi bi-person-circle"></i> USER
                             </button>
                             <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>Profile</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Log out</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i> Log out</a></li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
+                            <a class="nav-link text-dark"><i class="bi bi-person-add"></i> register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                            <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> login</a>
                         </li>
-                    
 
                     </ul>
                 </div>
@@ -83,7 +77,6 @@
     </div>
 
     <footer class="border-top footer text-muted">
-       
         <div class="container">
             &copy; 2024 - Diamond.RazorPage - <a asp-area="" asp-page="/Privacy">Privacy</a>
         </div>
@@ -94,7 +87,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-   
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

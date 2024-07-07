@@ -1,11 +1,12 @@
-﻿@page 
+﻿@page
 @model Diamond.RazorPage.Pages.Views.Home.ProductDetailModel
 @{
     ViewData["Title"] = "Product Details";
 }
 
 <div class="container">
-    <div class="row">
+    <div class="row bg-light py-5">
+        <!-- Added bg-light class for background color -->
         <h1>Jewelry detail</h1>
         <!-- Image Section -->
         <div class="col-md-6">
@@ -66,23 +67,14 @@
                     <td>@Model.Product.GoldKarat</td>
                 </tr>
                 <tr>
-                    <td style="font-weight:700">Gold Karat</td>
-                    <td>@Model.Product.GoldKarat</td>
-                </tr>
-
-                <tr>
                     <td style="font-weight:700">Gold Weight</td>
                     <td>@Model.Product.GoldWeight</td>
                 </tr>
-               
-              
             </table>
         </div>
-        
-        
     </div>
-
 </div>
+
 <div class="py-5 bg-light">
     <div class="container">
         <h3 class="h3">Similar Jewelry</h3>
@@ -143,5 +135,4 @@
         </div>
     </div>
 </div>
-
 
