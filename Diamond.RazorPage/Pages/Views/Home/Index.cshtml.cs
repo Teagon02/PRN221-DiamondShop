@@ -20,7 +20,7 @@ namespace Diamond.RazorPage.Pages.Views.Home
         public void OnGet(int pageIndex = 1)
         {
             CurrentPage = pageIndex;
-            PageProducts = _productService.GetAllpage(CurrentPage, PageSize);
+            PageProducts = _productService.GetAll_02(CurrentPage, PageSize);
         }
     }
 }

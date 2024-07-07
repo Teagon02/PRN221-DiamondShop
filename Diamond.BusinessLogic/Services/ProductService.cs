@@ -46,6 +46,12 @@ namespace Diamond.BusinessLogic.Services
             return page1;
         }
 
+        public PagedResult<Product> GetAll_02(int page, int pageSize)
+        {
+            var page2 = _productrepo.GetAll_02(page, pageSize);
+            return page2;
+        }
+
         public Category GetCategoryById(int? categoryId)
         {
             return _productrepo.GetCategoryById(categoryId);

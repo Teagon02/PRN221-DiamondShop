@@ -21,5 +21,6 @@ namespace Diamond.DataAccess.IRepositories
         Task AddImage(Image image);
         PagedResult<Product> GetAll(int page, int pageSize);
         Task<IList<ProductPriceDTO>> Dashboardlist();
+        PagedResult<Product> GetAll_02(int page, int pageSize);
     }
 }

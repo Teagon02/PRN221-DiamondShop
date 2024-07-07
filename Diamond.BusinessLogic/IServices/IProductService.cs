@@ -21,6 +21,7 @@ namespace Diamond.BusinessLogic.IServices
         Task SaveChangesAsync();
         PagedResult<Product> GetAllpage(int page, int pageSize);
         Task<IList<ProductPriceDTO>> Dashboardlist();
+        PagedResult<Product> GetAll_02(int page, int pageSize);
 
     }
 }

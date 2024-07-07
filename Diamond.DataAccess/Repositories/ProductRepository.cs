@@ -62,6 +62,22 @@ namespace Diamond.DataAccess.Repositories
             };
         }
 
+        public PagedResult<Product> GetAll_02(int page, int pageSize)
+        {
+            var query = _dbContext.Products.Where(p => p.Status == true).Include(p => p.Category)
+                .Include(p => p.Images).AsQueryable();
+            var totalItems = query.Count();
+            var users = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            return new PagedResult<Product>
+            {
+                Items = users,
+                TotalItems = totalItems,
+                PageNumber = page,
+                PageSize = pageSize
+            };
+        }
+
         public Category GetCategoryById(int? id)
         {
             return _dbContext.Categories.Find(id);
