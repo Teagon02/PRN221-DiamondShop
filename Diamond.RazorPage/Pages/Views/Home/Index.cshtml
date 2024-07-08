@@ -18,7 +18,8 @@
             <div class="input-group">
                 <input type="text" class="form-control" style="max-width:35%" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" name="searchTerm" value="@Model.searchTerm">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" id="button-addon2">Search</button>
+                    <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826;">Search</button>
+
                 </div>
             </div>
         </form>
@@ -44,7 +45,8 @@
                             <h5 class="card-title">@product.Name</h5>
                             <p class="card-text">@product.Description</p>
                             <p class="card-text">$@product.Price</p>
-                            <a href="/Views/Home/ProductDetail?id=@product.ProductId" class="btn btn-primary">View Details</a>
+                            <a href="/Views/Home/ProductDetail?id=@product.ProductId" class="btn btn-primary" style="background-color: #013A40; border-color: #005826;">View Details</a>
+
                         </div>
                     </div>
                 </div>
