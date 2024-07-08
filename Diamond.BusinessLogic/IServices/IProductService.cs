@@ -19,9 +19,9 @@ namespace Diamond.BusinessLogic.IServices
         Task CreateAsync(Product product);
         Task AddImage(Image image);
         Task SaveChangesAsync();
-        PagedResult<Product> GetAllpage(int page, int pageSize);
+        PagedResult<Product> GetAllpage(int page, int pageSize, string searchTerm);
         Task<IList<ProductPriceDTO>> Dashboardlist();
-        PagedResult<Product> GetAll_02(int page, int pageSize);
+        PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm);
 
     }
 }

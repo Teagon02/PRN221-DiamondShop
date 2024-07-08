@@ -40,15 +40,15 @@ namespace Diamond.BusinessLogic.Services
             return _productrepo.GetAll();
         }
 
-        public PagedResult<Product> GetAllpage(int page, int pageSize)
+        public PagedResult<Product> GetAllpage(int page, int pageSize, string searchTerm)
         {
-            var page1 = _productrepo.GetAll(page, pageSize);
+            var page1 = _productrepo.GetAll(page, pageSize ,searchTerm);
             return page1;
         }
 
-        public PagedResult<Product> GetAll_02(int page, int pageSize)
+        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm)
         {
-            var page2 = _productrepo.GetAll_02(page, pageSize);
+            var page2 = _productrepo.GetAll_02(page, pageSize,searchTerm);
             return page2;
         }
 

@@ -3,7 +3,6 @@ using Diamond.DataAccess.Models;
 using Diamond.DataAccess.PageList;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Collections.Generic;
 
 namespace Diamond.RazorPage.Pages.Admin.Users
 {
@@ -13,16 +12,18 @@ namespace Diamond.RazorPage.Pages.Admin.Users
         public PagedResult<User> PagedUsers { get; set; }
         public int CurrentPage { get; set; }
         public int PageSize { get; set; } = 4;
+        public string SearchTerm { get; set; }
 
         public ListUserModel(IUserService userService)
         {
             _userService = userService;
         }
 
-        public void OnGet(int pageIndex = 1)
+        public void OnGet(string searchTerm, int pageIndex = 1)
         {
             CurrentPage = pageIndex;
-            PagedUsers = _userService.GetAllpage(CurrentPage, PageSize);
+            SearchTerm = searchTerm;
+            PagedUsers = _userService.GetAllPage(CurrentPage, PageSize, SearchTerm);
         }
     }
 }

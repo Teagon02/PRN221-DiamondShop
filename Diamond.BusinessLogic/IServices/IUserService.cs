@@ -18,7 +18,7 @@ namespace Diamond.BusinessLogic.IServices
         User GetUserById(int id);
         void Delete(User user);
         Task SaveChangesAsync();
-        PagedResult<User> GetAllpage(int page, int pageSize);
+        PagedResult<User> GetAllPage(int page, int pageSize, string searchTerm);
 
     }
 

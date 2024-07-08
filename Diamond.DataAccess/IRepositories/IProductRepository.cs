@@ -19,8 +19,8 @@ namespace Diamond.DataAccess.IRepositories
         Task CreateAsync(Product product);
         Task SaveChangesAsync();
         Task AddImage(Image image);
-        PagedResult<Product> GetAll(int page, int pageSize);
+        PagedResult<Product> GetAll(int page, int pageSize , string searchTerm) ;
         Task<IList<ProductPriceDTO>> Dashboardlist();
-        PagedResult<Product> GetAll_02(int page, int pageSize);
+        PagedResult<Product> GetAll_02(int page, int pageSize , string searchTerm);
     }
 }

@@ -8,71 +8,136 @@
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
     <link href="~/css/site.css" rel="stylesheet" /> <!-- Thêm thẻ link này để áp dụng CSS từ site.css -->
+    <style>
+        /* CSS styles are kept as provided */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .header form {
+                display: flex;
+                align-items: center;
+            }
+
+            .header input[type="text"] {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .header .btn {
+                padding: 5px 10px;
+                font-size: 14px;
+                text-decoration: none;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th,
+            .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            .table th {
+                background-color: #343a40;
+                color: white;
+            }
+
+        .pagination {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .pagination li {
+                margin: 0 5px;
+            }
+
+            .pagination a {
+                text-decoration: none;
+                padding: 8px 12px;
+                color: #007bff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .pagination .active a {
+                background-color: #007bff;
+                color: white;
+            }
+
+            .pagination .disabled a {
+                color: #6c757d;
+            }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Categories</h2>
-        <div class="row mb-4">
-            <div class="col text-right">
-                <a class="btn btn-success" href="/Admin/Categories/CreateCategory">Create <i class="bi bi-plus-circle"></i></a>
-            </div>
+        <div class="header">
+            <form method="get">
+                <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" />
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+            <a class="btn btn-success" href="/Admin/Categories/CreateCategory">Create <i class="bi bi-plus-circle"></i></a>
         </div>
 
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
+                <thead>
                     <tr style="font-size: small">
                         <th>ID</th>
-                     
                         <th>Name</th>
                         <th>Description</th>
                         <th>Date Created</th>
                         <th>Date Modified</th>
-                        <th class="d-flex justify-content-center">Action</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var category in Model.Pagedcategories.Items)
                     {
                         <tr style="font-size: small">
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @category.CategoryId
-                                </div>
-                            </td>
-                            <td class="align-middle">
-
-                                <div class="d-flex justify-content-center">
-                                    @category.CategoryName
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @category.Description
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @category.DateCreated
-                                </div>
-                            </td>
-                           
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @category.DateModified
-                                </div>
-                            </td>
-                           
-                            
+                            <td class="align-middle">@category.CategoryId</td>
+                            <td class="align-middle">@category.CategoryName</td>
+                            <td class="align-middle">@category.Description</td>
+                            <td class="align-middle">@category.DateCreated.ToString("MM/dd/yyyy")</td>
+                            <td class="align-middle">@category.DateModified?.ToString("MM/dd/yyyy")</td>
                             <td class="align-middle" style="white-space: nowrap;">
-                                <div class="d-flex justify-content-center">
-                                    <a class="btn btn-danger btn-sm mr-2 mx-2" href="/Admin/Categories/DeleteCategory?id=@category.CategoryId" style="background: red; border: none">
-                                        <i class="bi bi-trash3-fill"></i></a>
-
-                                    <a class="btn btn-info btn-sm" href="/Admin/Categories/UpdateCategory?id=@category.CategoryId"><i class="bi bi-pencil-square"></i></a>
-                                </div>
+                                <a class="btn btn-danger btn-sm mr-2 mx-2" href="/Admin/Categories/DeleteCategory?id=@category.CategoryId" style="background: red; border: none">
+                                    <i class="bi bi-trash3-fill"></i>
+                                </a>
+                                <a class="btn btn-info btn-sm" href="/Admin/Categories/UpdateCategory?id=@category.CategoryId">
+                                    <i class="bi bi-pencil-square"></i>
+                                </a>
                             </td>
                         </tr>
                     }
@@ -89,17 +154,12 @@
                             <a class="page-link" asp-page="./ListCategory" asp-route-pageIndex="@i">@i</a>
                         </li>
                     }
-                    <li class="page-item @(Model.CurrentPage == Model.Pagedcategories.TotalPages ? "disabled" : "")">
+                    <li class="page-item @(Model.CurrentPage >= Model.Pagedcategories.TotalPages ? "disabled" : "")">
                         <a class="page-link" asp-page="./ListCategory" asp-route-pageIndex="@(Model.CurrentPage + 1)">Next</a>
                     </li>
                 </ul>
             </nav>
         </div>
-
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

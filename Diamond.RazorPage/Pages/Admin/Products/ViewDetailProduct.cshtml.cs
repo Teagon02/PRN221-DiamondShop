@@ -4,6 +4,7 @@ using Diamond.DataAccess.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -103,5 +104,8 @@ namespace Diamond.RazorPage.Pages.Admin.Products
             SuccessMessage = "Product updated successfully";
             Response.Redirect("/Admin/Products/ListProducts");
         }
+
+
+       
     }
 }

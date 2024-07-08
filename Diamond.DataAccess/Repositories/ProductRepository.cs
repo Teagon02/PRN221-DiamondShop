@@ -46,10 +46,14 @@ namespace Diamond.DataAccess.Repositories
                    .Include(p => p.Images).ToList();
         }
 
-        public PagedResult<Product> GetAll(int page, int pageSize)
+        public PagedResult<Product> GetAll(int page, int pageSize, string searchTerm)
         {
             var query = _dbContext.Products.Include(p => p.Category)
                 .Include(p => p.Images).AsQueryable();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(p => p.Name.Contains(searchTerm) || p.Category.CategoryName.Contains(searchTerm));
+            }
             var totalItems = query.Count();
             var users = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
@@ -62,10 +66,14 @@ namespace Diamond.DataAccess.Repositories
             };
         }
 
-        public PagedResult<Product> GetAll_02(int page, int pageSize)
+        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm)
         {
             var query = _dbContext.Products.Where(p => p.Status == true).Include(p => p.Category)
                 .Include(p => p.Images).AsQueryable();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(p => p.Name.Contains(searchTerm) || p.Category.CategoryName.Contains(searchTerm));
+            }
             var totalItems = query.Count();
             var users = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 

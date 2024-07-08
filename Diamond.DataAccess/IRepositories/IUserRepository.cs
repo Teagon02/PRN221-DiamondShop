@@ -16,7 +16,7 @@ namespace Diamond.DataAccess.IRepositories
         User GetUserById(int id);
         Task SaveChangesAsync();
         void Delete(User user);
-        PagedResult<User> GetAll(int page, int pageSize);
+        PagedResult<User> GetAllPage(int page, int pageSize, string searchTerm);
 
     }
 }

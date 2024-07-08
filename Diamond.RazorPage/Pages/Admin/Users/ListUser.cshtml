@@ -9,16 +9,112 @@
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
     <link href="~/css/site.css" rel="stylesheet" /> <!-- Thêm thẻ link này để áp dụng CSS từ site.css -->
-  
+    <style>
+        /* CSS styles are kept as provided */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .header form {
+                display: flex;
+                align-items: center;
+            }
+
+            .header input[type="text"] {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .header .btn {
+                padding: 5px 10px;
+                font-size: 14px;
+                text-decoration: none;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th,
+            .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            .table th {
+                background-color: #343a40;
+                color: white;
+            }
+
+        .pagination {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .pagination li {
+                margin: 0 5px;
+            }
+
+            .pagination a {
+                text-decoration: none;
+                padding: 8px 12px;
+                color: #007bff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .pagination .active a {
+                background-color: #007bff;
+                color: white;
+            }
+
+            .pagination .disabled a {
+                color: #6c757d;
+            }
+             .table td img.avatar-img {
+            width: 80px; /* Adjust width as needed */
+            height: 80px; /* Adjust height as needed */
+            object-fit: cover; /* Ensures the image covers the entire space */
+            border-radius: 50%; /* Makes the image circular */
+        }
+    </style>
 </head>
 
 <body>
     <div class="container mt-5">
         <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Users</h2>
-        <div class="row mb-4">
-            <div class="col text-right">
-                <a class="btn btn-success" href="/Admin/Users/CreateUser">Create <i class="bi bi-plus-circle"></i></a>
-            </div>
+        <div class="header mb-4">
+            <form method="get" class="form-inline">
+                <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" class="form-control mr-2">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            <a class="btn btn-success" href="/Admin/Users/CreateUser">Create <i class="bi bi-plus-circle"></i></a>
         </div>
 
         <div class="table-responsive">
@@ -32,60 +128,34 @@
                         <th>Phone</th>
                         <th>Address</th>
                         <th>Created On</th>
-                        <th >Status</th>
-                        <th class="d-flex justify-content-center">Action</th>
+                        <th>Status</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var user in Model.PagedUsers.Items)
                     {
                         <tr style="font-size: small">
+                            <td class="align-middle">@user.Id</td>
+                            <td class="align-middle">@user.Email</td>
+                            <td class="align-middle">@user.Name</td>
+                            <td class="align-middle"><img src="/users/@user.Avatar" width="120" height="100" /></td>
+                            <td class="align-middle">@user.Phone</td>
+                            <td class="align-middle">@user.Address</td>
+                            <td class="align-middle">@user.CreateOn.ToString("MM/dd/yyyy")</td>
                             <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @user.Id
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                
-                                <div class="d-flex justify-content-center">
-                                    @user.Email
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @user.Name
-                                </div>
-                            </td>
-                            <td style="width: 150px"><img src="/users/@user.Avatar" width="100%" height="110px" class="align-content-center" /></td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @user.Phone
-                                </div>
+                                @if (user.Status)
+                                {
+                                    <span class="text-success">Active</span>
+                                }
+                                else
+                                {
+                                    <span class="text-danger">Inactive</span>
+                                }
                             </td>
                             <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @user.Address
-                                </div>
-                            </td>
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @user.CreateOn.ToString("MM/dd/yyyy")
-                                </div>
-                            </td>
-                            <td class="align-middle" style="font-weight:bold">
-                                <div class="d-flex justify-content-center">
-                                    @(user.Status ? "Active" : "Inactive")
-                                </div>
-                            </td>
-                            <td class="align-middle" style="white-space: nowrap;">
-                                <div class="d-flex justify-content-center">
-                                    <!-- In your Razor Page -->
-                                    <a class="btn btn-sm mr-2 mx-2" href="/Admin/Users/DeleteUser?id=@user.Id" style="background: red; border: none">
-                                        <i class="bi bi-trash3-fill"></i>
-                                    </a>
-                                    <a class="btn btn-info btn-sm" href="/Admin/Users/UpdateUser?id=@user.Id"><i class="bi bi-pencil-square"></i></a>
-
-                                </div>
+                                <a class="btn btn-info btn-sm" href="/Admin/Users/UpdateUser?id=@user.Id" ><i class="bi bi-pencil-square"></i></a>
+                                <a class="btn btn-danger btn-sm" href="/Admin/Users/DeleteUser?id=@user.Id" style="background: red; border: none"><i class="bi bi-trash"></i></a>
                             </td>
                         </tr>
                     }
@@ -108,7 +178,6 @@
                 </ul>
             </nav>
         </div>
- 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

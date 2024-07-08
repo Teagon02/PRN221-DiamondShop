@@ -12,7 +12,7 @@ namespace Diamond.DataAccess.IRepositories
     public interface ICategoryRepository
     {
         IList<Category> GetAll();
-        PagedResult<Category> GetAll(int page, int pageSize);
+        PagedResult<Category> GetAllpage(int page, int pageSize, string searchTerm);
         Task SaveChangesAsync();
         Task CreateAsync(Category category);
         Task DeleteAsync(Category category);

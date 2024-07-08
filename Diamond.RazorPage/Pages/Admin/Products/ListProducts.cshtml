@@ -7,21 +7,113 @@
     <meta charset="utf-8" />
     <title>@ViewData["Title"]</title>
     <link href="~/css/site.css" rel="stylesheet" /> <!-- Thêm thẻ link này để áp dụng CSS từ site.css -->
+    <style>
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 20px;
+        }
 
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .header form {
+                display: flex;
+                align-items: center;
+            }
+
+            .header input[type="text"] {
+                padding: 5px 10px;
+                font-size: 14px;
+            }
+
+            .header .btn {
+                padding: 5px 10px;
+                font-size: 14px;
+                text-decoration: none;
+                color: white;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+        .btn-primary {
+            background-color: #007bff;
+        }
+
+        .btn-success {
+            background-color: #28a745;
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: center;
+            }
+
+            .table th {
+                background-color: #343a40;
+                color: white;
+            }
+
+        .pagination {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+            .pagination li {
+                margin: 0 5px;
+            }
+
+            .pagination a {
+                text-decoration: none;
+                padding: 8px 12px;
+                color: #007bff;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+            }
+
+            .pagination .active a {
+                background-color: #007bff;
+                color: white;
+            }
+
+            .pagination .disabled a {
+                color: #6c757d;
+            }
+    </style>
 </head>
 
 <body>
-    <div class="container mt-5">
+    <div class="container">
         <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Product</h2>
-        <div class="row mb-4">
-            <div class="col text-right">
-                <a class="btn btn-success" href="/Admin/Products/CreateProduct">Create <i class="bi bi-plus-circle"></i></a>
-            </div>
+        <div class="header">
+            <form method="get" class="form-inline">
+                <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" />
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+            <a class="btn btn-success" href="/Admin/Products/CreateProduct">Create <i class="bi bi-plus-circle"></i></a>
         </div>
 
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
-                <thead class="thead-dark">
+                <thead>
                     <tr style="font-size: small">
                         <th>ID</th>
                         <th>Name</th>
@@ -32,72 +124,25 @@
                         <th>Price</th>
                         <th>Date Created</th>
                         <th>Status</th>
-                        <th class="d-flex justify-content-center">Action</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var product in Model.PageProducts.Items)
                     {
                         <tr style="font-size: small">
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @product.ProductId
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-
-                                <div class="d-flex justify-content-center">
-                                    @product.Name
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @product.Category.CategoryName
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @product.MainStoneSize
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @product.SideStoneType
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @product.SideStoneWeight
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @(product.Price)$
-                                </div>
-                            </td>
-
-                            <td class="align-middle">
-                                <div class="d-flex justify-content-center">
-                                    @product.DateCreated.ToString("MM/dd/yyyy")
-                                </div>
-                            </td>
-
-                            <td class="align-middle" style="font-weight:bold">
-                                <div class="d-flex justify-content-center">
-                                    @product.Status
-                                </div>
+                            <td class="align-middle">@product.ProductId</td>
+                            <td class="align-middle">@product.Name</td>
+                            <td class="align-middle">@product.Category.CategoryName</td>
+                            <td class="align-middle">@product.MainStoneSize</td>
+                            <td class="align-middle">@product.SideStoneType</td>
+                            <td class="align-middle">@product.SideStoneWeight</td>
+                            <td class="align-middle">@product.Price$</td>
+                            <td class="align-middle">@product.DateCreated.ToString("MM/dd/yyyy")</td>
+                            <td class="align-middle" style="font-weight:bold">@product.Status</td>
                             <td class="align-middle" style="white-space: nowrap; vertical-align: middle;">
-                                <div class="d-flex justify-content-center">
-                                    <a class="btn btn-info btn-sm" href="/Admin/Products/ViewDetailProduct?id=@product.ProductId">View Detail</a>
-                                </div>
+                                <a class="btn btn-info btn-sm" href="/Admin/Products/ViewDetailProduct?id=@product.ProductId">View Detail</a>
                             </td>
-
                         </tr>
                     }
                 </tbody>
@@ -118,13 +163,7 @@
                     </li>
                 </ul>
             </nav>
-
         </div>
-
     </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

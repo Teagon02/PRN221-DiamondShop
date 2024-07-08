@@ -13,7 +13,7 @@ namespace Diamond.BusinessLogic.IServices
     {
         IList<Category> GetAll();
         Task CreateAsync(Category category);
-        PagedResult<Category> GetAllpage(int page, int pageSize);
+        PagedResult<Category> GetAllpage(int page, int pageSize , string searchTerm);
         Category Findid(int id);
         Task DeleteAsync(Category category);
         Task SaveChangesAsync();

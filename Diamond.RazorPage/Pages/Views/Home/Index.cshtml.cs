@@ -12,15 +12,17 @@ namespace Diamond.RazorPage.Pages.Views.Home
         public PagedResult<Product> PageProducts { get; set; }
         public int CurrentPage { get; set; }
         public int PageSize { get; set; } = 6;
+        public string searchTerm { get; set; }
         public IndexModel(IProductService productService)
         {
             _productService=productService;
         }
 
-        public void OnGet(int pageIndex = 1)
+        public void OnGet( string searchterm ,int pageIndex = 1 )
         {
+            searchTerm = searchterm;
             CurrentPage = pageIndex;
-            PageProducts = _productService.GetAll_02(CurrentPage, PageSize);
+            PageProducts = _productService.GetAll_02(CurrentPage, PageSize ,searchTerm);
         }
     }
 }

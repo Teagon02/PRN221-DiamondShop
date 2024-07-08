@@ -42,11 +42,22 @@ namespace Diamond.DataAccess.Repositories
             return _db.Categories.ToList();
         }
 
-        public PagedResult<Category> GetAll(int page, int pageSize)
+        public PagedResult<Category> GetAllpage(int page, int pageSize, string searchTerm)
         {
             var query = _db.Categories.AsQueryable();
+
+            // Apply search filter if searchTerm is provided
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(c => c.CategoryName.Contains(searchTerm));
+            }
+
             var totalItems = query.Count();
-            var categories = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            // Retrieve paged categories
+            var categories = query.Skip((page - 1) * pageSize)
+                                  .Take(pageSize)
+                                  .ToList();
 
             return new PagedResult<Category>
             {

@@ -38,9 +38,9 @@ namespace Diamond.BusinessLogic.Services
             return _repository.GetAll();
         }
 
-        public PagedResult<Category> GetAllpage(int page, int pageSize)
+        public PagedResult<Category> GetAllpage(int page, int pageSize, string searchTerm)
         {
-            var page1 = _repository.GetAll(page, pageSize);
+            var page1 = _repository.GetAllpage(page, pageSize , searchTerm);
             return page1;
         }
 

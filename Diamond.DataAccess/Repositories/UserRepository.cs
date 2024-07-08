@@ -61,9 +61,15 @@ namespace Diamond.DataAccess.Repositories
             
         }
 
-        public PagedResult<User> GetAll(int page, int pageSize)
+        public PagedResult<User> GetAllPage(int page, int pageSize, string searchTerm)
         {
             var query = _dbContext.Users.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(u => u.Name.Contains(searchTerm)); // Thay đổi ở đây để kiểm tra searchTerm có tồn tại hay không
+            }
+
             var totalItems = query.Count();
             var users = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 
@@ -75,5 +81,7 @@ namespace Diamond.DataAccess.Repositories
                 PageSize = pageSize
             };
         }
+
+
     }
 }

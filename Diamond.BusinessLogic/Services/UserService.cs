@@ -49,11 +49,11 @@ namespace Diamond.BusinessLogic.Services
            _userRepository.Delete(user);
         }
 
-      
 
-        PagedResult<User> IUserService.GetAllpage(int page, int pageSize)
+
+        public PagedResult<User> GetAllPage(int page, int pageSize, string searchTerm)
         {
-            var page1 = _userRepository.GetAll(page, pageSize);
+            var page1 = _userRepository.GetAllPage(page, pageSize,searchTerm);
             return page1;
         }
     }
