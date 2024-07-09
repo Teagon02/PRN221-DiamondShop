@@ -108,13 +108,13 @@
 
 <body>
     <div class="container mt-5">
-        <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Users</h2>
-        <div class="header mb-4">
+        <h2 class="text-center mb-5 text-dark fw-bold fs-3"> All Of Users</h2>
+       <div class="header mb-4">
             <form method="get" class="form-inline">
                 <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" class="form-control mr-2">
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826;">Search</button>
             </form>
-            <a class="btn btn-success" href="/Admin/Users/CreateUser">Create <i class="bi bi-plus-circle"></i></a>
+            <a class="btn btn-success" href="/Admin/Users/CreateUser" style="background-color: #013A40; border-color: #005826;">Create <i class="bi bi-plus-circle"></i></a>
         </div>
 
         <div class="table-responsive">

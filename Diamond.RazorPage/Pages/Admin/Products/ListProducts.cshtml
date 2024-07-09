@@ -102,13 +102,14 @@
 
 <body>
     <div class="container">
-        <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Product</h2>
+        <h2 class="text-center mb-5 text-dark fw-bold fs-3"> All Of Products</h2>
         <div class="header">
             <form method="get" class="form-inline">
                 <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" />
-                <button class="btn btn-primary" type="submit">Search</button>
+                <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826;">Search</button>
             </form>
-            <a class="btn btn-success" href="/Admin/Products/CreateProduct">Create <i class="bi bi-plus-circle"></i></a>
+            <a class="btn btn-success" href="/Admin/Products/CreateProduct" style="background-color: #013A40; border-color: #005826;">Create <i class="bi bi-plus-circle"></i></a>
+
         </div>
 
         <div class="table-responsive">

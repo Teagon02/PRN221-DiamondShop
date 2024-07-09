@@ -101,13 +101,13 @@
 
 <body>
     <div class="container">
-        <h2 class="text-center mb-5 text-primary fw-bold fs-3">List All Categories</h2>
+        <h2 class="text-center mb-5 text-dark fw-bold fs-3"> All Of Categories</h2>
         <div class="header">
             <form method="get">
                 <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" />
-                <button type="submit" class="btn btn-primary">Search</button>
+                <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826;">Search</button>
             </form>
-            <a class="btn btn-success" href="/Admin/Categories/CreateCategory">Create <i class="bi bi-plus-circle"></i></a>
+            <a class="btn btn-success" href="/Admin/Categories/CreateCategory" style="background-color: #013A40; border-color: #005826;">Create <i class="bi bi-plus-circle"></i></a>
         </div>
 
         <div class="table-responsive">
