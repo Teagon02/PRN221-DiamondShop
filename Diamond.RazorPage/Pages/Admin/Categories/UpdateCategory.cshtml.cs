@@ -2,12 +2,15 @@ using Diamond.BusinessLogic.IServices;
 using Diamond.BusinessLogic.Services;
 using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.Models;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Diamond.RazorPage.Pages.Admin.Categories
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class UpdateCategoryModel : PageModel
     {
         private readonly ICategoryService _categoryService;

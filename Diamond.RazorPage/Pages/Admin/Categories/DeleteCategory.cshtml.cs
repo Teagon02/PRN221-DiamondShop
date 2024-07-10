@@ -1,10 +1,13 @@
 using Diamond.BusinessLogic.IServices;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Threading.Tasks;
 
 namespace Diamond.RazorPage.Pages.Admin.Categories
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class DeleteCategoryModel : PageModel
     {
         private readonly ICategoryService _categoryService;

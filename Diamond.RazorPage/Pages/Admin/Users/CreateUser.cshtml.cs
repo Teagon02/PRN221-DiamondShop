@@ -2,6 +2,8 @@ using Diamond.BusinessLogic.IServices;
 using Diamond.DataAccess.Data;
 using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.Models;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -13,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace Diamond.RazorPage.Pages.Admin.Users
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class CreateUserModel : PageModel
     {
         private readonly IWebHostEnvironment _webHostEnvironment;

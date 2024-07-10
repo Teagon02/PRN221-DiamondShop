@@ -1,11 +1,14 @@
 using Diamond.BusinessLogic.IServices;
 using Diamond.BusinessLogic.Services;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Diamond.RazorPage.Pages.Admin.Users
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class DeleteUserModel : PageModel
     {
         private readonly IWebHostEnvironment _webHostEnvironment;

@@ -1,11 +1,14 @@
 using Diamond.BusinessLogic.IServices;
 using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.Models;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Diamond.RazorPage.Pages.Admin.Users
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class UpdateUserModel : PageModel
     {
         private readonly IUserService _userService;

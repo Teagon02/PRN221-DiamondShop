@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -13,7 +14,7 @@
     <link rel="stylesheet" href="~/Diamond.RazorPage.styles.css" asp-append-version="true" />
 
     <!-- Bootstrap Icons CSS -->
-    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" /> 
+    <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -27,46 +28,50 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                          <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-gear"></i> Adminitration
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory">Categories</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts">Products</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser">Users</a></li>
-                            </ul>
-                        </li>
+                        @if (User.IsInRole(SD.Role_Admin))
+                        {
+                            <li class="nav-item dropdown">
+                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-gear"></i> Content Management
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-light">
+                                    <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory">Categories</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts">Products</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser">Users</a></li>
+                                </ul>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i>Home</a>
                         </li>
 
-                  
+
 
                     </ul>
                 </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav" style="margin-left:auto">
-                        <li class="nav-item dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle"></i> User
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Log out</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
-                        </li>
-                    
-
+                    @* <ul class="navbar-nav" style="margin-left:auto">
+                    <li class="nav-item dropdown">
+                    <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="bi bi-person-circle"></i> User
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-light">
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i>Profile</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i>Log out</a></li>
                     </ul>
+                    </li>
+
+                    <li class="nav-item">
+                    <a class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                    </li>
+
+
+                    </ul> *@
+                    <partial name="_LoginPartial" />
                 </div>
             </div>
         </nav>
@@ -88,7 +93,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate-unobtrusive/3.2.12/jquery.validate.unobtrusive.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-   
+
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

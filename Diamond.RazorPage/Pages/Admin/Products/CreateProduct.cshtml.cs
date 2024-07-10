@@ -2,6 +2,8 @@ using Diamond.BusinessLogic.IServices;
 using Diamond.BusinessLogic.Services;
 using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.Models;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -12,6 +14,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Diamond.RazorPage.Pages.Admin.Products
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class CreateProductModel : PageModel
     {
         private readonly IWebHostEnvironment _webHostEnvironment;

@@ -1,12 +1,15 @@
 using Diamond.BusinessLogic.IServices;
 using Diamond.DataAccess.Models;
 using Diamond.DataAccess.PageList;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
 namespace Diamond.RazorPage.Pages.Admin.Users
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class ListUserModel : PageModel
     {
         private readonly IUserService _userService;

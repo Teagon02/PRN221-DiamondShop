@@ -1,6 +1,8 @@
 using Diamond.BusinessLogic.IServices;
 using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.Models;
+using Diamond.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Diamond.RazorPage.Pages.Admin.Products
 {
+    [Authorize(Roles = SD.Role_Admin)]
     public class ViewDetailProductModel : PageModel
     {
         private readonly IProductService _productService;
