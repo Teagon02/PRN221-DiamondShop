@@ -3,6 +3,7 @@ using Diamond.DataAccess.Models;
 using Diamond.DataAccess.PageList;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Globalization;
 
 namespace Diamond.RazorPage.Pages.Views.Home
 {
@@ -18,11 +19,23 @@ namespace Diamond.RazorPage.Pages.Views.Home
             _productService=productService;
         }
 
-        public void OnGet( string searchterm ,int pageIndex = 1 )
+        public void OnGet(string searchterm, int pageIndex = 1)
         {
             searchTerm = searchterm;
             CurrentPage = pageIndex;
-            PageProducts = _productService.GetAll_02(CurrentPage, PageSize ,searchTerm);
+            PageProducts = _productService.GetAll_02(CurrentPage, PageSize, searchTerm);
+            foreach (var product in PageProducts.Items)
+            {
+                product.PriceFormatted = ConvertToVND(product.Price);
+            }
+        }
+
+
+
+        private string ConvertToVND(double price)
+        {
+            CultureInfo culture = CultureInfo.GetCultureInfo("vi-VN");
+            return price.ToString("C0", culture);
         }
     }
 }
