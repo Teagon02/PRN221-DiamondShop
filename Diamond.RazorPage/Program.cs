@@ -5,6 +5,7 @@ using Diamond.BusinessLogic.Services;
 using Diamond.DataAccess.Data;
 using Diamond.DataAccess.IRepositories;
 using Diamond.DataAccess.Repositories;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,7 +16,27 @@ builder.Services.AddDbContext<DiamondDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DiamondConnection"));
 });
-builder.Services.AddTransient<IUserRepository, UserRepository>(); 
+builder.Services.AddDbContext<AuthDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("AuthConnection"));
+});
+
+//config Identity
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<AuthDbContext>();
+
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Default password settings
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = false;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = false;
+    options.Password.RequiredLength = 6;
+    options.Password.RequiredUniqueChars = 1;
+});
+
+builder.Services.AddTransient<IUserRepository, UserRepository>();
 builder.Services.AddTransient<IUserService, UserService>();
 
 builder.Services.AddTransient<IProductRepository, ProductRepository>();
@@ -38,6 +59,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();

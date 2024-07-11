@@ -1,4 +1,6 @@
 ﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> signInManager
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -64,6 +66,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> login</a>
                         </li>
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <div class="me-3">
+                                @User?.Identity?.Name
+                            </div>
+                            <a href="/logout" class="btn bg-light text-dark me-3">Logout</a>
+                        }else{
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                            </li>
+                        }
+                    
+                    
 
                     </ul>
                 </div>
