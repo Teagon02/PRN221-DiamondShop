@@ -27,64 +27,72 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #013A40; border-color: #005826;">
-                                <i class="bi bi-gear"></i> ADMINISTRATION
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory"><i class="bi bi-tag"></i> Categories</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts"><i class="bi bi-gem"></i> Products</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser"><i class="bi bi-people-fill"></i> Users</a></li>
-                                <li><a class="dropdown-item" asp-page="/Admin/Dashboard/DashBoard"> <i class="bi bi-speedometer2"></i> DashBoard</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i> HOME</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Views/AboutUs"> ABOUT US</a>
-                        </li>
-                    </ul>
-                </div>
+                @if (signInManager.IsSignedIn(User))
+                {
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item dropdown">
+                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #013A40; border-color: #005826;">
+                                    <i class="bi bi-gear"></i> ADMINISTRATION
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-light">
+                                    <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory"><i class="bi bi-tag"></i> Categories</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts"><i class="bi bi-gem"></i> Products</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser"><i class="bi bi-people-fill"></i> Users</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Admin/Dashboard/DashBoard"> <i class="bi bi-speedometer2"></i> DashBoard</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i> HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Views/AboutUs"> ABOUT US</a>
+                            </li>
+                        </ul>
+                    </div>
+               
+                }
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav" style="margin-left:auto">
-                        <li class="nav-item dropdown">
-                            <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #013A40; border-color: #005826;">
-                                <i class="bi bi-gear"></i> USER
-                            </button>
-                            <ul class="dropdown-menu dropdown-menu-light">
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i> Log out</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"><i class="bi bi-person-add"></i> register</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> login</a>
-                        </li>
+
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="nav-item dropdown">
+                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #013A40; border-color: #005826;">
+                                    <i class="bi bi-gear"></i> USER
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-light">
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
+                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i> Log out</a></li>
+                                </ul>
+                            </li>
+
+                        }
+                       
                         @if (signInManager.IsSignedIn(User))
                         {
                             <div class="me-3">
                                 @User?.Identity?.Name
                             </div>
                             <a href="/logout" class="btn bg-light text-dark me-3">Logout</a>
-                        }else{
+                        }
+                        else
+                        {
                             <li class="nav-item">
-                                <a class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
+                                <a asp-page="/Register" class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                                <a asp-page="/Login" class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                             </li>
                         }
-                    
-                    
+
+
 
                     </ul>
                 </div>
+
+                
             </div>
         </nav>
     </header>
