@@ -1,6 +1,8 @@
-﻿<!DOCTYPE html>
-@using Microsoft.AspNetCore.Identity
+﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> signInManager
+@inject UserManager<IdentityUser> userManager
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -16,83 +18,157 @@
 
     <!-- Bootstrap Icons CSS -->
     <link href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet" />
-</head>
 
+    <style>
+        .navbar {
+            background-color: #2c3e50;
+        }
+
+        .navbar-brand {
+            text-align: center;
+            color: #f8c471 !important;
+        }
+
+            .navbar-brand .brand-top {
+                font-family: 'Times New Roman', serif;
+                font-size: 1.8rem;
+                font-weight: bold;
+                display: block;
+            }
+
+            .navbar-brand .brand-bottom {
+                font-family: 'Times New Roman', serif;
+                font-size: 1.2rem;
+                font-weight: normal;
+                display: block;
+            }
+
+        .navbar-nav .nav-link {
+            color: #f8c471 !important;
+        }
+
+            .navbar-nav .nav-link:hover {
+                color: #f1c40f !important;
+            }
+
+        .navbar-nav .dropdown-menu {
+            background-color: #2c3e50;
+        }
+
+            .navbar-nav .dropdown-menu .dropdown-item {
+                color: #f8c471 !important;
+            }
+
+                .navbar-nav .dropdown-menu .dropdown-item:hover {
+                    background-color: #f1c40f !important;
+                    color: #2c3e50 !important;
+                }
+
+        .btn-light.dropdown-toggle {
+            background-color: #2c3e50;
+            border-color: #f8c471;
+            color: #f8c471 !important;
+        }
+
+            .btn-light.dropdown-toggle:hover {
+                background-color: #f1c40f;
+                border-color: #f8c471;
+                color: #2c3e50 !important;
+            }
+
+        footer {
+            background-color: #2c3e50;
+            color: #f8c471;
+            padding: 40px 0;
+        }
+
+            footer a {
+                color: #f8c471;
+                text-decoration: none;
+            }
+
+                footer a:hover {
+                    color: #f1c40f;
+                    text-decoration: none;
+                }
+
+        .footer-heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .social-icons {
+            font-size: 1.5rem;
+        }
+
+            .social-icons a {
+                margin-right: 15px;
+            }
+    </style>
+</head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-white bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-page="/Index"> <img src="~/images/jewelry-logo-design.jpg" class="w-200" alt="Logo" style="height: 75px ;"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">
+                    <span class="brand-top">JEWELRY</span>
+                    <span class="brand-bottom">Jewelry Shop System</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                @if (signInManager.IsSignedIn(User))
-                {
-                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item dropdown">
-                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #013A40; border-color: #005826;">
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav">
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                        @*     <li class="nav-item dropdown">
+                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-gear"></i> ADMINISTRATION
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-light">
+                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" asp-page="/Admin/Categories/ListCategory"><i class="bi bi-tag"></i> Categories</a></li>
                                     <li><a class="dropdown-item" asp-page="/Admin/Products/ListProducts"><i class="bi bi-gem"></i> Products</a></li>
                                     <li><a class="dropdown-item" asp-page="/Admin/Users/ListUser"><i class="bi bi-people-fill"></i> Users</a></li>
-                                    <li><a class="dropdown-item" asp-page="/Admin/Dashboard/DashBoard"> <i class="bi bi-speedometer2"></i> DashBoard</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Admin/Dashboard/DashBoard"><i class="bi bi-speedometer2"></i> Dashboard</a></li>
                                 </ul>
-                            </li>
+                            </li> *@
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/Views/Home"><i class="bi bi-house-door"></i> HOME</a>
+                                <a class="nav-link" href="/Views/Dashboard">ADMINISTRATION</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" href="/Views/AboutUs"> ABOUT US</a>
-                            </li>
-                        </ul>
-                    </div>
-               
-                }
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        }
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Views/Home"><i class="bi bi-house-door"></i> HOME</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/Views/AboutUs">ABOUT US</a>
+                        </li>
+                    </ul>
                     <ul class="navbar-nav" style="margin-left:auto">
-
                         @if (signInManager.IsSignedIn(User))
                         {
                             <li class="nav-item dropdown">
-                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #013A40; border-color: #005826;">
+                                <button class="btn btn-light dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                     <i class="bi bi-gear"></i> USER
                                 </button>
-                                <ul class="dropdown-menu dropdown-menu-light">
+                                <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
                                     <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-box-arrow-left"></i> Log out</a></li>
+                                    <li><a class="dropdown-item" href="/Logout"><i class="bi bi-box-arrow-left"></i> Log out</a></li>
                                 </ul>
                             </li>
-
-                        }
-                       
-                        @if (signInManager.IsSignedIn(User))
-                        {
-                            <div class="me-3">
-                                @User?.Identity?.Name
-                            </div>
-                            <a href="/logout" class="btn bg-light text-dark me-3">Logout</a>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a asp-page="/Register" class="nav-link text-dark"><i class="bi bi-person-add"></i> Register</a>
+                                <a asp-page="/Register" class="nav-link"><i class="bi bi-person-add"></i> Register</a>
                             </li>
                             <li class="nav-item">
-                                <a asp-page="/Login" class="nav-link text-dark"><i class="bi bi-box-arrow-in-right"></i> Login</a>
+                                <a asp-page="/Login" class="nav-link"><i class="bi bi-box-arrow-in-right"></i> Login</a>
                             </li>
                         }
-
-
-
                     </ul>
                 </div>
-
-                
             </div>
         </nav>
     </header>
@@ -102,7 +178,48 @@
         </main>
     </div>
 
-
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h5 class="footer-heading">About Us</h5>
+                    <p>We provide the finest and most exquisite jewelry pieces. Our mission is to offer high-quality jewelry that enhances your beauty and style.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/Views/Home">Home</a></li>
+                        <li><a href="/Views/AboutUs">About Us</a></li>
+                        <li><a href="#">Products</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">Customer Service</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Shipping & Returns</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5 class="footer-heading">Follow Us</h5>
+                    <div class="social-icons">
+                        <a href="https://www.facebook.com/profile.php?id=100010745613287"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-twitter"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <p>&copy; 2024 Jewelry Shop System. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

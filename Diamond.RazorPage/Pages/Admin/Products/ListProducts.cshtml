@@ -1,12 +1,14 @@
 ﻿@page
 @model Diamond.RazorPage.Pages.Admin.Products.ListProductsModel
 @{
+    Layout = "_Layout"; // Make sure this matches the layout page file name
 }
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />    
     <title>@ViewData["Title"]</title>
-    <link href="~/css/site.css" rel="stylesheet" /> <!-- Thêm thẻ link này để áp dụng CSS từ site.css -->
+    <link href="~/css/site.css" rel="stylesheet" /> <!-- Link to apply site-wide CSS -->
     <style>
         .container {
             width: 100%;
@@ -30,6 +32,8 @@
             .header input[type="text"] {
                 padding: 5px 10px;
                 font-size: 14px;
+                border: 1px solid #ccc; /* Border for input */
+                border-radius: 4px; /* Rounded borders */
             }
 
             .header .btn {
@@ -39,6 +43,7 @@
                 color: white;
                 border-radius: 4px;
                 cursor: pointer;
+                border: 1px solid #005826; /* Border for buttons */
             }
 
         .btn-primary {
@@ -56,18 +61,31 @@
         .table {
             width: 100%;
             border-collapse: collapse;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd; /* Border for the table */
         }
 
-            .table th, .table td {
+            .table th,
+            .table td {
                 border: 1px solid #ddd;
-                padding: 8px;
+                padding: 12px;
                 text-align: center;
+                font-size: 0.875rem;
             }
 
             .table th {
                 background-color: #343a40;
                 color: white;
+                text-transform: uppercase;
             }
+
+            .table tbody tr {
+                transition: background-color 0.3s;
+            }
+
+                .table tbody tr:hover {
+                    background-color: #f1f1f1;
+                }
 
         .pagination {
             list-style-type: none;
@@ -97,25 +115,55 @@
             .pagination .disabled a {
                 color: #6c757d;
             }
+
+        h2 {
+            font-family: 'Georgia', serif;
+            color: #013A40;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .btn-danger {
+            background-color: #e74c3c;
+            border: none;
+        }
+
+        .btn-info {
+            background-color: #3498db;
+            border: none;
+        }
+
+            .btn-info i, .btn-danger i {
+                color: white;
+            }
+
+        .table-responsive {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <h2 class="text-center mb-5 text-dark fw-bold fs-3"> All Of Products</h2>
+        <h2>All Of Products</h2>
         <div class="header">
             <form method="get" class="form-inline">
                 <input type="text" name="searchTerm" placeholder="Search..." value="@Model.SearchTerm" />
                 <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826;">Search</button>
             </form>
             <a class="btn btn-success" href="/Admin/Products/CreateProduct" style="background-color: #013A40; border-color: #005826;">Create <i class="bi bi-plus-circle"></i></a>
-
         </div>
 
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead>
-                    <tr style="font-size: small">
+                    <tr>
                         <th>ID</th>
                         <th>Name</th>
                         <th>Category</th>
@@ -131,7 +179,7 @@
                 <tbody>
                     @foreach (var product in Model.PageProducts.Items)
                     {
-                        <tr style="font-size: small">
+                        <tr>
                             <td class="align-middle">@product.ProductId</td>
                             <td class="align-middle">@product.Name</td>
                             <td class="align-middle">@product.Category.CategoryName</td>

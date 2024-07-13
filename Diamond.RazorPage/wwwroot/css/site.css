@@ -15,55 +15,55 @@ html {
 /* Body styling */
 body {
     margin-bottom: 60px;
-    font-family: "Century Gothic" !important;
+    font-family: "Century Gothic", sans-serif;
+    background-color: #fafafa; /* Light background for a clean look */
 }
 
 /* Navigation link styling */
 .nav-link {
-    font-size: 15px !important;
-    color: darkblue !important;
+    font-size: 15px;
+    color: #333; /* Dark gray for a softer look */
 }
-
 
 /* Input and textarea styling */
 input.form-control,
 textarea.form-control {
-    background-color: #f0f0f0; /* Background color */
-    color: #333; /* Text color */
-    border-color: #ccc; /* Border color */
+    background-color: #ffffff; /* White background for inputs */
+    color: #333; /* Dark text color */
+    border-color: #ccc; /* Light gray border */
     border-radius: 4px; /* Rounded borders */
 }
 
 /* Button styling */
 .btn {
-    background-color: #007bff; /* Background color */
-    color: #fff; /* Text color */
-    border-color: #007bff; /* Border color */
+    background-color: #b38b6d; /* Elegant gold-like background color */
+    color: #fff; /* White text color */
+    border-color: #b38b6d; /* Border matches background */
     border-radius: 4px; /* Rounded borders */
 }
 
     /* Hover state for buttons */
     .btn:hover {
-        background-color: #0056b3; /* Background color on hover */
-        color: #fff; /* Text color on hover */
-        border-color: #0056b3; /* Border color on hover */
+        background-color: #a67c52; /* Slightly darker gold on hover */
+        color: #fff; /* White text color on hover */
+        border-color: #a67c52; /* Border matches hover background */
     }
 
 /* Link styling */
 a {
-    color: #007bff; /* Link color */
+    color: #b38b6d; /* Gold-like color for links */
     text-decoration: none; /* Remove underline */
 }
 
     /* Hover state for links */
     a:hover {
-        color: #0056b3; /* Link color on hover */
+        color: #a67c52; /* Darker gold on hover */
         text-decoration: underline; /* Add underline on hover */
     }
 
 /* Product name styling */
 .product-name {
-    font-family: Arial, sans-serif; /* Font family */
+    font-family: "Arial", sans-serif; /* Font family */
     font-size: 18px; /* Font size */
     font-weight: bold; /* Font weight */
     color: #333; /* Font color */
@@ -71,13 +71,13 @@ a {
 
 /* Custom background styling */
 .custom-bg {
-    background-color: #f5f5f5; /* Slightly darker gray background */
+    background-color: #ffffff; /* White background for content areas */
     padding: 1.5rem; /* Padding */
     border-radius: 0.5rem; /* Rounded borders */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 /* Image border styling */
 .img-border-bold {
-    border: 3px solid #343a40; /* Dark border for images */
+    border: 3px solid #b38b6d; /* Elegant gold-like border for images */
 }
-

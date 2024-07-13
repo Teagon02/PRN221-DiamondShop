@@ -1,0 +1,40 @@
+﻿<div class="bg-light border-right p-3" id="sidebar-wrapper" style="width: 250px;">
+    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">Administration</div>
+    <div class="list-group list-group-flush my-3">
+        <a href="/Admin/Categories/ListCategory" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="bi bi-tag me-2"></i> Categories
+        </a>
+        <a href="/Admin/Products/ListProducts" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="bi bi-gem me-2"></i> Products
+        </a>
+        <a href="/Admin/Users/ListUser" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="bi bi-people-fill me-2"></i> Users
+        </a>
+        <a href="/Admin/Dashboard/DashBoard" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
+            <i class="bi bi-speedometer2 me-2"></i> Dashboard
+        </a>
+    </div>
+</div>
+
+<style>
+    #sidebar-wrapper {
+        min-height: 100vh;
+    }
+
+    .list-group-item {
+        transition: all 0.2s;
+    }
+
+        .list-group-item:hover {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+    .primary-text {
+        color: #013A40;
+    }
+
+    .second-text {
+        color: #005826;
+    }
+</style>

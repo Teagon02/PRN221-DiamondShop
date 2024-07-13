@@ -4,18 +4,50 @@
     ViewData["Title"] = "About Us";
 }
 <div class="container mt-5">
-    <h2 class="text-center mb-4">About Us</h2>
+    <div class="hero-section text-center mb-5">
+        <h1 class="display-4 text-gold">ABOUT US</h1>
+        <p class="lead text-muted">Discover the story behind our exquisite jewelry collection.</p>
+    </div>
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <div class="card shadow-lg">
+            <div class="card shadow-lg border-0 custom-bg">
                 <div class="card-body">
                     <div class="text-center mb-4">
-                        <img src="~/images/jewelry-logo-design.jpg" alt="Logo" class="img-fluid rounded-circle" style="max-width: 150px; border: 5px solid #f8f9fa;">
+                        <h2 class="text-gold mb-0">JEWELRY SHOP SYSTEM</h2>
                     </div>
-                    <p class="lead text-center">Welcome to our Jewelry store! We are dedicated to providing you with the finest and most exquisite pieces of jewelry. Our mission is to offer high-quality jewelry that enhances your beauty and style.</p>
-                    <p>At our store, we believe in the craftsmanship and quality of our products. Our collection features a wide range of jewelry, including rings, necklaces, bracelets, and earrings, each carefully designed and crafted to perfection.</p>
-                    <p>Our team of experienced jewelers and designers work tirelessly to bring you unique and elegant pieces that you will cherish for a lifetime. We take pride in our commitment to excellence and customer satisfaction.</p>
-                    <p>Thank you for choosing our store. We look forward to serving you and helping you find the perfect jewelry piece that suits your taste and style.</p>
+                    <p class="lead text-center text-muted">Welcome to our Jewelry store! We are dedicated to providing you with the finest and most exquisite pieces of jewelry. Our mission is to offer high-quality jewelry that enhances your beauty and style.</p>
+                    <p class="text-muted">At our store, we believe in the craftsmanship and quality of our products. Our collection features a wide range of jewelry, including rings, necklaces, bracelets, and earrings, each carefully designed and crafted to perfection.</p>
+                    <p class="text-muted">Our team of experienced jewelers and designers work tirelessly to bring you unique and elegant pieces that you will cherish for a lifetime. We take pride in our commitment to excellence and customer satisfaction.</p>
+                    <p class="text-muted">Thank you for choosing our store. We look forward to serving you and helping you find the perfect jewelry piece that suits your taste and style.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card shadow border-0 custom-bg">
+                <div class="card-body text-center">
+                    <i class="bi bi-gem display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Quality Craftsmanship</h5>
+                    <p class="card-text">Our jewelry is crafted with precision and care, ensuring each piece is of the highest quality.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow border-0 custom-bg">
+                <div class="card-body text-center">
+                    <i class="bi bi-stars display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Unique Designs</h5>
+                    <p class="card-text">We offer a diverse range of unique and elegant designs to suit every style.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card shadow border-0 custom-bg">
+                <div class="card-body text-center">
+                    <i class="bi bi-heart display-4 text-gold mb-3"></i>
+                    <h5 class="card-title">Customer Satisfaction</h5>
+                    <p class="card-text">Our priority is to ensure you are completely satisfied with your purchase.</p>
                 </div>
             </div>
         </div>
@@ -23,8 +55,15 @@
 </div>
 
 <style>
+    .hero-section {
+        background-color: #f9f9f9;
+        padding: 3rem 1rem;
+        border-radius: .25rem;
+    }
+
     .card {
         border: none;
+        border-radius: .25rem;
     }
 
     .card-body {
@@ -32,19 +71,49 @@
         background-color: #ffffff;
     }
 
-    .text-center img {
-        margin-bottom: 1rem;
-    }
-
     .lead {
         font-size: 1.25rem;
         font-weight: 300;
-        color: #343a40;
+        color: #495057;
     }
 
     p {
         font-size: 1rem;
         color: #495057;
         margin-bottom: 1.25rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #b38b6d; /* Gold-like color */
+    }
+
+    .card-text {
+        font-size: 1rem;
+        color: #495057;
+    }
+
+    .bi {
+        color: #b38b6d; /* Gold-like color */
+    }
+
+    .text-gold {
+        color: #b38b6d; /* Gold-like color */
+    }
+
+    .border-gold {
+        border: 5px solid #b38b6d; /* Gold-like border */
+    }
+
+    .custom-bg {
+        background-color: #ffffff; /* White background */
+        padding: 2rem;
+        border-radius: .25rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .text-center .text-gold {
+        margin-bottom: 0.5rem;
     }
 </style>

@@ -5,30 +5,28 @@
 }
 <section class="jumbotron text-center">
     <div class="container">
-        <h1>
-            Our Collection
-        </h1>
-        <p class="lead text-muted">Explore our diverse selection of high-quality Jewelrys.</p>
+        <h1 class="display-4">Our Collection</h1>
+        <p class="lead text-muted">Explore our diverse selection of high-quality Jewelry.</p>
     </div>
 </section>
 
 <div class="py-3 bg-light">
     <div class="container">
-        <form method="get">
-            <div class="input-group"style="padding-top : 20px">
-                <input type="text" class="form-control" style="max-width:35%" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" name="searchTerm" value="@Model.searchTerm">
+        <form method="get" class="mb-4">
+            <div class="input-group" style="max-width: 100%; margin: 0 auto;">
+                <input type="text" class="form-control" style="max-width: 100%;" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2" name="searchTerm" value="@Model.searchTerm">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826 ;">Search</button>
+                    <button class="btn btn-primary" type="submit" id="button-addon2" style="background-color: #013A40; border-color: #005826;">Search</button>
                 </div>
             </div>
         </form>
 
-        <h3 class="h3">All Jewelrys</h3>
+        <h3 class="h3 text-center">All Jewelry</h3>
         <div class="row">
             @foreach (var product in Model.PageProducts.Items)
             {
-                <div class="col-md-4 mb-4">
-                    <div class="card">
+                <div class="col-md-4 mb-4 d-flex align-items-stretch">
+                    <div class="card shadow-lg border-0 w-100">
                         <div style="height: 225px; overflow: hidden;">
                             @if (product.Images.Any())
                             {
@@ -40,11 +38,11 @@
                                 <img src="~/images/default-product-image.jpg" class="card-img-top" style="object-fit: cover; width: 100%; height: 100%;" alt="Default Product Image">
                             }
                         </div>
-                        <div class="card-body">
-                            <h5 class="card-title">@product.Name</h5>
-                            <p class="card-text">@product.Description</p>
-                            <p class="card-text">@product.PriceFormatted</p>
-                            <a href="/Views/Home/ProductDetail?id=@product.ProductId" class="btn btn-primary" style="background-color: #013A40; border-color: #005826;">View Details</a>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title font-weight-bold text-dark">@product.Name</h5>
+                            <p class="card-text text-muted flex-grow-1">@product.Description</p>
+                            <p class="card-text text-primary">@product.PriceFormatted</p>
+                            <a href="/Views/Home/ProductDetail?id=@product.ProductId" class="btn btn-primary mt-auto" style="background-color: #013A40; border-color: #005826;">View Details</a>
                         </div>
                     </div>
                 </div>
@@ -64,7 +62,7 @@
                     @for (int i = 1; i <= Model.PageProducts.TotalPages; i++)
                     {
                         <li class="page-item @(Model.CurrentPage == i ? "active" : "")">
-                            <a class="page-link" href="?pageIndex=@i&searchTerm=@Model.searchTerm">@i</a>
+                            <a class="page-link pagination-number @(Model.CurrentPage == i ? "active" : "")" href="?pageIndex=@i&searchTerm=@Model.searchTerm">@i</a>
                         </li>
                     }
                     <li class="page-item @(Model.CurrentPage == Model.PageProducts.TotalPages ? "disabled" : "")">
@@ -80,123 +78,64 @@
 </div>
 
 <style>
-    .footer {
-        margin-bottom: -8%;
-        margin-left: -8%;
-        padding-left: 20%;
-        width: 117%;
-        position: relative;
-        height: auto;
-        background-color: #f0f0f0;
+    .jumbotron h1 {
+        font-family: 'Playfair Display', serif; /* Elegant font for headers */
+        font-size: 2.5rem;
+        color: #b38b6d;
     }
 
-        .footer .col {
-            width: 190px;
-            height: auto;
-            float: left;
-            box-sizing: border-box;
-            padding: 0px 20px 20px 20px;
+    .lead {
+        font-family: 'Lora', serif; /* Elegant font for lead text */
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: #6c757d;
+    }
+
+    .card {
+        border: none;
+        border-radius: .25rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+        background-color: #ffffff;
+    }
+
+    .card-title {
+        font-family: 'Lora', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #343a40;
+    }
+
+    .card-text {
+        font-family: 'Lora', serif;
+        font-size: 1rem;
+        color: #495057;
+    }
+
+    .pagination-number {
+        background-color: #013A40;
+        border-color: #005826;
+        color: white;
+    }
+
+        .pagination-number:hover {
+            background-color: #005826;
+            color: white;
         }
 
-            .footer .col h1 {
-                margin: 0;
-                padding: 0;
-                font-family: inherit;
-                font-size: 12px;
-                line-height: 17px;
-                padding: 20px 0px 5px 0px;
-                color: #000000; /* Màu đen cho chữ */
-                font-weight: bold; /* In đậm chữ */
-                text-transform: uppercase;
-                letter-spacing: 0.250em;
-            }
-
-            .footer .col ul {
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-            }
-
-                .footer .col ul li {
-                    color: #999999;
-                    font-size: 14px;
-                    font-family: inherit;
-                    font-weight: bold;
-                    padding: 5px 0px 5px 0px;
-                    cursor: pointer;
-                    transition: .2s;
-                }
-
-    .social ul li {
-        display: inline-block;
-        padding-right: 5px !important;
+    .page-item.active .page-link.pagination-number {
+        background-color: #005826;
+        border-color: #005826;
+        color: white;
     }
 
-    .footer .col ul li:hover {
-        color: #ffffff;
-        transition: .1s;
+    .page-link.pagination-number {
+        color: white; /* Ensuring the text color is white */
+    }
+
+    .text-primary {
+        color: #b38b6d !important; /* Custom primary color for text */
     }
 </style>
-
-<div class="footer">
-    <div class="contain">
-        <div class="col">
-            <h1>Company</h1>
-            <ul>
-                <li>About</li>
-                <li>Mission</li>
-                <li>Services</li>
-                <li>Social</li>
-                <li>Get in touch</li>
-            </ul>
-        </div>
-        <div class="col">
-            <h1>Products</h1>
-            <ul>
-                <li>About</li>
-                <li>Mission</li>
-                <li>Services</li>
-                <li>Social</li>
-                <li>Get in touch</li>
-            </ul>
-        </div>
-        <div class="col">
-            <h1>Accounts</h1>
-            <ul>
-                <li>About</li>
-                <li>Mission</li>
-                <li>Services</li>
-                <li>Social</li>
-                <li>Get in touch</li>
-            </ul>
-        </div>
-        <div class="col">
-            <h1>Resources</h1>
-            <ul>
-                <li>Webmail</li>
-                <li>Redeem code</li>
-                <li>WHOIS lookup</li>
-                <li>Site map</li>
-                <li>Web templates</li>
-                <li>Email templates</li>
-            </ul>
-        </div>
-        <div class="col">
-            <h1>Support</h1>
-            <ul>
-                <li>Contact us</li>
-                <li>Web chat</li>
-                <li>Open ticket</li>
-            </ul>
-        </div>
-        <div class="col social">
-            <h1>Social</h1>
-            <ul>
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-youtube"></i>
-            </ul>
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</div>

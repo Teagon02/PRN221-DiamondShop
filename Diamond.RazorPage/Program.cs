@@ -63,5 +63,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
+app.MapGet
+  ("/", (context) =>
+  {
+      context.Response.Redirect("/Views/Home");
+      return Task.CompletedTask;
+  });
 app.Run();

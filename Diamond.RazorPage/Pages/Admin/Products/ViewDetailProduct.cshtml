@@ -37,14 +37,14 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">ID</label>
                         <div class="col-sm-8">
-                            <input readonly class="form-control-plaintext" value="@Model.Product.ProductId">
+                            <input readonly class="form-control-plaintext border border-dark text-muted" value="@Model.Product.ProductId">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Name</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.Name" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.Name" />
                             <span asp-validation-for="ProductDTO.Name" class="text-danger"></span>
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Description</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" asp-for="ProductDTO.Description"></textarea>
+                            <textarea class="form-control border border-dark text-muted" asp-for="ProductDTO.Description"></textarea>
                             <span asp-validation-for="ProductDTO.Description" class="text-danger"></span>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                     <div class="mb-3 row">
                         <label class="col-sm-4 col-form-label">Category</label>
                         <div class="col-sm-8">
-                            <select class="form-control" asp-for="ProductDTO.CategoryId">
+                            <select class="form-control border border-dark text-muted" asp-for="ProductDTO.CategoryId">
                                 <option value="">Select a Category</option>
                                 @foreach (var category in Model.Categories)
                                 {
@@ -74,7 +74,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Main Stone Size</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.MainStoneSize" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.MainStoneSize" />
                             <span asp-validation-for="ProductDTO.MainStoneSize" class="text-danger"></span>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Side Stone Type</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.SideStoneType" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.SideStoneType" />
                             <span asp-validation-for="ProductDTO.SideStoneType" class="text-danger"></span>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Side Stone Quantity</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.SideStoneQuantity" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.SideStoneQuantity" />
                             <span asp-validation-for="ProductDTO.SideStoneQuantity" class="text-danger"></span>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Side Stone Weight</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.SideStoneWeight" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.SideStoneWeight" />
                             <span asp-validation-for="ProductDTO.SideStoneWeight" class="text-danger"></span>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Gold Type</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.GoldType" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.GoldType" />
                             <span asp-validation-for="ProductDTO.GoldType" class="text-danger"></span>
                         </div>
                     </div>
@@ -114,7 +114,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Gold Karat</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.GoldKarat" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.GoldKarat" />
                             <span asp-validation-for="ProductDTO.GoldKarat" class="text-danger"></span>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Gold Weight</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.GoldWeight" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.GoldWeight" />
                             <span asp-validation-for="ProductDTO.GoldWeight" class="text-danger"></span>
                         </div>
                     </div>
@@ -130,7 +130,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Status</label>
                         <div class="col-sm-8">
-                            <select class="form-control" asp-for="ProductDTO.Status">
+                            <select class="form-control border border-dark text-muted" asp-for="ProductDTO.Status">
                                 <option value="true">Active</option>
                                 <option value="false">Inactive</option>
                             </select>
@@ -141,7 +141,7 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Price</label>
                         <div class="col-sm-8">
-                            <input class="form-control" asp-for="ProductDTO.Price" />
+                            <input class="form-control border border-dark text-muted" asp-for="ProductDTO.Price" />
                             <span asp-validation-for="ProductDTO.Price" class="text-danger"></span>
                         </div>
                     </div>
@@ -149,14 +149,14 @@
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Date Created</label>
                         <div class="col-sm-8">
-                            <input readonly class="form-control-plaintext" value="@Model.Product.DateCreated.ToString("MM/dd/yyyy")">
+                            <input readonly class="form-control-plaintext border border-dark text-muted" value="@Model.Product.DateCreated.ToString("MM/dd/yyyy")">
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <label class="col-sm-4 col-form-label">Date Modified</label>
                         <div class="col-sm-8">
-                            <input readonly class="form-control-plaintext" value="@Model.Product.DateModified?.ToString("MM/dd/yyyy")">
+                            <input readonly class="form-control-plaintext border border-dark text-muted" value="@Model.Product.DateModified?.ToString("MM/dd/yyyy")">
                         </div>
                     </div>
 
@@ -165,7 +165,7 @@
                             <button type="submit" class="btn btn-primary">Update</button>
                         </div>
                         <div class="col-sm-4 d-grid">
-                            <a class="btn btn-outline-primary" href="/Admin/Products/ListProducts" role="button">Cancel</a>
+                            <a class="btn btn-outline-primary text-white" href="/Admin/Products/ListProducts" role="button">Cancel</a>
                         </div>
                     </div>
                 </form>
@@ -177,3 +177,56 @@
         <p class="text-danger">Product not found.</p>
     }
 </div>
+
+<style>
+    /* Custom Background */
+    .custom-bg {
+        background-color: #f9f9f9; /* Light gray background for a clean look */
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    }
+
+    /* Form Control Styling */
+    .form-control {
+        background-color: #ffffff; /* White background */
+        color: #333; /* Dark text color */
+        border: 1px solid #b38b6d; /* Gold-like border */
+    }
+
+        .form-control:focus {
+            border-color: #a67c52; /* Darker gold border on focus */
+            box-shadow: 0 0 5px rgba(166, 124, 82, 0.5); /* Subtle shadow on focus */
+        }
+
+    /* Button Styling */
+    .btn-primary {
+        background-color: #b38b6d; /* Gold-like background color */
+        border-color: #b38b6d; /* Border matches background */
+    }
+
+        .btn-primary:hover {
+            background-color: #a67c52; /* Darker gold on hover */
+            border-color: #a67c52; /* Border matches hover background */
+        }
+
+    .btn-outline-primary {
+        color: #b38b6d; /* Gold-like text color */
+        border-color: #b38b6d; /* Gold-like border */
+    }
+
+        .btn-outline-primary:hover {
+            color: #fff; /* White text on hover */
+            background-color: #b38b6d; /* Gold-like background on hover */
+            border-color: #b38b6d; /* Border matches background */
+        }
+
+    /* Text Styling */
+    .text-primary {
+        color: #b38b6d !important; /* Gold-like text color for headings */
+    }
+
+    .text-danger {
+        color: #e3342f; /* Red color for validation errors */
+    }
+</style>
