@@ -66,7 +66,7 @@ namespace Diamond.DataAccess.Repositories
             };
         }
 
-        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm)
+        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm, int? categoryid)
         {
             var query = _dbContext.Products.Where(p => p.Status == true).Include(p => p.Category)
                 .Include(p => p.Images).AsQueryable();
@@ -74,6 +74,11 @@ namespace Diamond.DataAccess.Repositories
             {
                 query = query.Where(p => p.Name.Contains(searchTerm) || p.Category.CategoryName.Contains(searchTerm));
             }
+            if (categoryid.HasValue)
+            {
+                query = query.Where(p => p.CategoryId == categoryid.Value); 
+            }
+            
             var totalItems = query.Count();
             var users = query.Skip((page - 1) * pageSize).Take(pageSize).ToList();
 

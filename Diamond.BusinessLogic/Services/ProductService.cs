@@ -46,9 +46,9 @@ namespace Diamond.BusinessLogic.Services
             return page1;
         }
 
-        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm)
+        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm, int? categoryid)
         {
-            var page2 = _productrepo.GetAll_02(page, pageSize,searchTerm);
+            var page2 = _productrepo.GetAll_02(page, pageSize,searchTerm,  categoryid);
             return page2;
         }
 
