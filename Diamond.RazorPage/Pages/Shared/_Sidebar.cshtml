@@ -1,40 +1,44 @@
-﻿<div class="bg-light border-right p-3" id="sidebar-wrapper" style="width: 250px;">
-    <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">Administration</div>
-    <div class="list-group list-group-flush my-3">
-        <a href="/Admin/Categories/ListCategory" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="bi bi-tag me-2"></i> Categories
-        </a>
-        <a href="/Admin/Products/ListProducts" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="bi bi-gem me-2"></i> Products
-        </a>
-        <a href="/Admin/Users/ListUser" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="bi bi-people-fill me-2"></i> Users
-        </a>
-        <a href="/Admin/Dashboard/DashBoard" class="list-group-item list-group-item-action bg-transparent second-text fw-bold">
-            <i class="bi bi-speedometer2 me-2"></i> Dashboard
-        </a>
-    </div>
+﻿<div class="sidebar">
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-item">
+            <a href="#" class="sidebar-nav-link">
+                <div>
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <span>Dashboard</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a asp-page="/Admin/Products/ListProducts" class="sidebar-nav-link active">
+                <div>
+                    <i class="fas fa-box-open"></i>
+                </div>
+                <span>Product</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a asp-page="/Admin/Categories/ListCategory" class="sidebar-nav-link">
+                <div>
+                    <i class="fas fa-tags"></i>
+                </div>
+                <span>Category</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a asp-page="/Admin/Users/ListUser" class="sidebar-nav-link">
+                <div>
+                    <i class="fas fa-user"></i>
+                </div>
+                <span>User</span>
+            </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <a asp-page="/Views/Home/Index" class="sidebar-nav-link">
+                <div>
+                    <i class="fas fa-home"></i>
+                </div>
+                <span>Home</span>
+            </a>
+        </li>
+    </ul>
 </div>
-
-<style>
-    #sidebar-wrapper {
-        min-height: 100vh;
-    }
-
-    .list-group-item {
-        transition: all 0.2s;
-    }
-
-        .list-group-item:hover {
-            background-color: #f8f9fa;
-            color: #343a40;
-        }
-
-    .primary-text {
-        color: #013A40;
-    }
-
-    .second-text {
-        color: #005826;
-    }
-</style>

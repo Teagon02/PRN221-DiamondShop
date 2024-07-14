@@ -1,0 +1,186 @@
+﻿@page
+@model Diamond.RazorPage.Pages.Views.Blog.BlogModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .col-md-6 {
+            display: flex;
+            flex: 0 0 50%;
+            max-width: 50%;
+            padding: 15px;
+        }
+
+        .blog-card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+            .blog-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            }
+
+            .blog-card img {
+                width: 100%;
+                height: 300px; /* Set a fixed height for all images */
+                object-fit: cover; /* Ensure the image covers the area and maintains aspect ratio */
+                border-bottom: 1px solid #ddd;
+            }
+
+        .blog-card-body {
+            padding: 20px;
+            flex: 1;
+        }
+
+        .blog-card-footer {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-top: 1px solid #ddd;
+            text-align: right;
+        }
+
+            .blog-card-footer a {
+                text-decoration: none;
+                color: #fff; /* Ensure the link color inside the button is white */
+                font-weight: bold;
+                transition: color 0.2s;
+            }
+
+                .blog-card-footer a:hover {
+                    color: #fff; /* Keep the hover color white */
+                }
+
+        .blog-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-bottom: 15px;
+        }
+
+        .read-more-btn {
+            background-color: #004d40;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.2s;
+        }
+
+            .read-more-btn:hover {
+                background-color: #00332a;
+                color: white;
+            }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Our Blog</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="blog-card">
+                    <img src="~/images/diamond-1475978_640.webp" alt="Pear Diamond" />
+                    <div class="blog-card-body">
+                        <p class="blog-meta">Created on: 05/10/2023</p>
+                        <h5 class="blog-title">The Exquisite Beauty of Pear Diamonds</h5>
+                        <p class="text-muted">By: Jane Austen</p>
+                        <p>A rare and exquisite beauty, the Pear diamond boasts a unique elegance that captures the essence of refinement.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="/Views/BlogDetails/Blogdetail_1" class="btn read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-card">
+                    <img src="~/images/diamonds-2599816_640.jpg" alt="Radiant Cut" />
+                    <div class="blog-card-body">
+                        <p class="blog-meta">Created on: 05/10/2023</p>
+                        <h5 class="blog-title">Radiant Cut</h5>
+                        <p class="text-muted">By: William Shakespeare</p>
+                        <p>Radiating beauty and brilliance, the Diamond Beautiful is a masterpiece of nature's finest work.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="/Views/BlogDetails/Blogdetail_2" class="btn read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-card">
+                    <img src="~/images/diamond-1186139_640.webp" alt="The Magnificence of Emerald Cut Diamonds" />
+                    <div class="blog-card-body">
+                        <p class="blog-meta">Created on: 05/10/2023</p>
+                        <h5 class="blog-title">The Magnificence of Emerald Cut Diamonds</h5>
+                        <p class="text-muted">By: Charles Dickens</p>
+                        <p>As enchanting as a starry night sky, the Radiant Cut diamond exudes a celestial beauty that captivates the imagination.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="/Views/BlogDetails/Blogdetail_3" class="btn read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-card">
+                    <img src="~/images/diamond-123338_640.jpg" alt="The Allure of Cushion Cut Diamonds" />
+                    <div class="blog-card-body">
+                        <p class="blog-meta">Created on: 05/10/2023</p>
+                        <h5 class="blog-title">The Allure of Cushion Cut Diamonds</h5>
+                        <p class="text-muted">By: J.K. Rowling</p>
+                        <p>Embodying the essence of love and passion, the Heart Shape diamond is a timeless symbol of romance and devotion.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="/Views/BlogDetails/Blogdetail_4" class="btn read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="blog-card">
+                    <img src="~/images/ai-generated-8712522_640.jpg" alt="Princess Cut" />
+                    <div class="blog-card-body">
+                        <p class="blog-meta">Created on: 05/10/2023</p>
+                        <h5 class="blog-title">Princess Cut</h5>
+                        <p class="text-muted">By: Ernest Hemingway</p>
+                        <p>Fit for royalty, the Princess Cut diamond is a regal and majestic gemstone that commands attention with its bold beauty and undeniable allure.</p>
+                    </div>
+                    <div class="blog-card-footer">
+                        <a href="/Views/BlogDetails/Blogdetail_5" class="btn read-more-btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

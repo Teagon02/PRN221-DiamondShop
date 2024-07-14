@@ -4,6 +4,7 @@ using Diamond.DataAccess.Models;
 using Diamond.DataAccess.PageList;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Globalization;
 
 namespace Diamond.RazorPage.Pages.Views.Home
 {
@@ -14,11 +15,13 @@ namespace Diamond.RazorPage.Pages.Views.Home
         public PagedResult<Product> PageProducts { get; set; }
         public int CurrentPage { get; set; }
         public int PageSize { get; set; } = 6;
+
         public ProductDetailModel(IProductService productService, ICategoryService categoryService)
         {
             _productService = productService;
-            _categoryService=categoryService;
+            _categoryService = categoryService;
         }
+
         [BindProperty]
         public ProductDTO ProductDTO { get; set; }
 
@@ -28,7 +31,7 @@ namespace Diamond.RazorPage.Pages.Views.Home
         public IList<Product> Products { get; private set; }
         public Category Category { get; private set; }
 
-        public void OnGet(int id , int pageIndex = 1)
+        public void OnGet(int id, int pageIndex = 1)
         {
             Categories = _categoryService.GetAll(); // Populate Categories
 
@@ -59,6 +62,7 @@ namespace Diamond.RazorPage.Pages.Views.Home
                 ImageUrls = images.Select(i => i.Url).ToList(),
                 Images = new List<IFormFile>(),
                 CategoryId = product.CategoryId,
+                PriceInVND = ConvertToVND(product.Price)
             };
 
             Product = product;
@@ -66,12 +70,16 @@ namespace Diamond.RazorPage.Pages.Views.Home
             CurrentPage = pageIndex;
             PageProducts = _productService.GetProductsByCategory(product.CategoryId, CurrentPage, PageSize);
 
+            foreach (var similarProduct in PageProducts.Items)
+            {
+                similarProduct.PriceFormatted = ConvertToVND(similarProduct.Price);
+            }
         }
-        //public void OnGet(string categoryName)
-        //{
-        //    Products = _productService.GetProductByCategory(categoryName);
 
-        //}
-
+        private string ConvertToVND(double price)
+        {
+            CultureInfo culture = new CultureInfo("vi-VN");
+            return string.Format(culture, "{0:#,##0}", price);
+        }
     }
 }

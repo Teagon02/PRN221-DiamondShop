@@ -42,6 +42,7 @@ namespace Diamond.DataAccess.DTO
         public double Price { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
+        public string PriceInVND { get; set; }
         public List<string> ImageUrls { get; set; }
         public ICollection<IFormFile> Images { get; set; } = new List<IFormFile>();
         public Category Category { get; set; }

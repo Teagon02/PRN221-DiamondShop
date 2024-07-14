@@ -31,8 +31,8 @@
                 </a>
             </li>
             <li class="nav-item">
-                <img src="assets/AT-pro-black.png" alt="ATPro logo" class="logo logo-light">
-                <img src="assets/AT-pro-white.png" alt="ATPro logo" class="logo logo-dark">
+                @*       <img src="assets/AT-pro-black.png" alt="ATPro logo" class="logo logo-light">
+                <img src="assets/AT-pro-white.png" alt="ATPro logo" class="logo logo-dark"> *@
             </li>
         </ul>
         <!-- end nav left -->
@@ -85,7 +85,7 @@
     </li>
     <li class="nav-item avt-wrapper">
         <div class="avt dropdown">
-            <img src="assets/tuat.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
+            <img src="~/users/20240626101950946.jpg" alt="User image" class="dropdown-toggle" data-toggle="user-menu">
             <ul id="user-menu" class="dropdown-menu">
                 <li class="dropdown-menu-item">
                     <a class="dropdown-menu-link">
@@ -135,42 +135,7 @@
     </div>
     <!-- end navbar -->
     <!-- sidebar -->
-    <div class="sidebar">
-        <ul class="sidebar-nav">
-            <li class="sidebar-nav-item">
-                <a href="#" class="sidebar-nav-link">
-                    <div>
-                        <i class="fas fa-tachometer-alt"></i>
-                    </div>
-                    <span>Dashboard</span>
-                </a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a asp-page="/Admin/Products/ListProducts" class="sidebar-nav-link active">
-                    <div>
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <span>Product</span>
-                </a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a asp-page="/Admin/Categories/ListCategory" class="sidebar-nav-link">
-                    <div>
-                        <i class="fas fa-tags"></i>
-                    </div>
-                    <span>Category</span>
-                </a>
-            </li>
-            <li class="sidebar-nav-item">
-                <a asp-page="/Admin/Users/ListUser" class="sidebar-nav-link">
-                    <div>
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <span>User</span>
-                </a>
-            </li>
-        </ul>
-    </div>
+    @await Html.PartialAsync("_Sidebar")
     <!-- end sidebar -->
     <!-- main content -->
     <div class="wrapper">
