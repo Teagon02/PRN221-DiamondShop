@@ -53,7 +53,8 @@ namespace Diamond.DataAccess.Data
                 UserName = "admin@gmail.com",
                 Email = "admin@gmail.com",
                 NormalizedEmail = "admin@gmail.com".ToUpper(),
-                NormalizedUserName = "admin@gmail.com".ToUpper()
+                NormalizedUserName = "admin@gmail.com".ToUpper(),
+                EmailConfirmed = true
             };
 
             superAdminUser.PasswordHash = new PasswordHasher<IdentityUser>()

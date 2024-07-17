@@ -3,6 +3,7 @@
 using Diamond.BusinessLogic.IServices;
 using Diamond.BusinessLogic.Services;
 using Diamond.DataAccess.Data;
+using Diamond.DataAccess.DTO;
 using Diamond.DataAccess.IRepositories;
 using Diamond.DataAccess.Repositories;
 using Microsoft.AspNetCore.Identity;
@@ -23,7 +24,8 @@ builder.Services.AddDbContext<AuthDbContext>(options =>
 
 //config Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AuthDbContext>();
+    .AddEntityFrameworkStores<AuthDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -34,6 +36,9 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequiredLength = 6;
     options.Password.RequiredUniqueChars = 1;
+
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = true;
 });
 
 builder.Services.AddTransient<IUserRepository, UserRepository>();
@@ -44,6 +49,11 @@ builder.Services.AddTransient<IProductService, ProductService>();
 
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+
+
+//config mail
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
+builder.Services.AddTransient<IMailService, EmailService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

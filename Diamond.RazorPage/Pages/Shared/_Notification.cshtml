@@ -3,6 +3,10 @@
 
 @{
     var notification = (Notification)ViewData["Notification"];
+    if(notification != null)
+    {
+        notification = (Notification)TempData["Notifation"];
+    }
     if (notification != null)
     {
         var notificationClass = "";
