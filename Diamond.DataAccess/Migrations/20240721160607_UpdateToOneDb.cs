@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Diamond.DataAccess.Migrations.AuthDb
+namespace Diamond.DataAccess.Migrations
 {
-    public partial class AddIdentity : Migration
+    public partial class UpdateToOneDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -167,7 +167,63 @@ namespace Diamond.DataAccess.Migrations.AuthDb
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "c052ffb4-245b-4c3c-8390-f1bd806828e2", 0, "0253f1f0-66d3-433e-b503-6858e4b6ad9e", "admin@gmail.com", false, false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEEulQzHsQTUu8guJ6XAy+iQwqpsQSW+PKSqWR69GSUjcN/4Vks2743cjyoNnlqWIfw==", null, false, "ceffd50d-193a-4d48-a7d3-d6b2c5b93db3", false, "admin@gmail.com" });
+                values: new object[] { "c052ffb4-245b-4c3c-8390-f1bd806828e2", 0, "0ee7d368-1d11-40d9-94f3-53d8d6cae90a", "admin@gmail.com", false, false, null, "ADMIN@GMAIL.COM", "ADMIN@GMAIL.COM", "AQAAAAEAACcQAAAAEF2rsRoTuqX/1ZiFhiprA07JQXOQApemmWHJ9aqbsCKJPcI86e0rijts7bgvSGRN6A==", null, false, "70a2923f-927f-4668-ac39-75007c40f65d", false, "admin@gmail.com" });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 1,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5964), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5974) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 2,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5978), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5978) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 3,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5979), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5979) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 4,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5980), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5980) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 5,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5981), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(5981) });
+
+            migrationBuilder.UpdateData(
+                table: "Products",
+                keyColumn: "ProductId",
+                keyValue: 1,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(6032), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(6033) });
+
+            migrationBuilder.UpdateData(
+                table: "Products",
+                keyColumn: "ProductId",
+                keyValue: 2,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(6034), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(6035) });
+
+            migrationBuilder.UpdateData(
+                table: "Products",
+                keyColumn: "ProductId",
+                keyValue: 3,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(6036), new DateTime(2024, 7, 21, 23, 6, 7, 202, DateTimeKind.Local).AddTicks(6036) });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -246,6 +302,62 @@ namespace Diamond.DataAccess.Migrations.AuthDb
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 1,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4025), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4037) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 2,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4041), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4042) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 3,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4043), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4044) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 4,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4045), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4045) });
+
+            migrationBuilder.UpdateData(
+                table: "Categories",
+                keyColumn: "CategoryId",
+                keyValue: 5,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4047), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4047) });
+
+            migrationBuilder.UpdateData(
+                table: "Products",
+                keyColumn: "ProductId",
+                keyValue: 1,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4189), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4190) });
+
+            migrationBuilder.UpdateData(
+                table: "Products",
+                keyColumn: "ProductId",
+                keyValue: 2,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4193), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4193) });
+
+            migrationBuilder.UpdateData(
+                table: "Products",
+                keyColumn: "ProductId",
+                keyValue: 3,
+                columns: new[] { "DateCreated", "DateModified" },
+                values: new object[] { new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4195), new DateTime(2024, 7, 10, 20, 57, 11, 673, DateTimeKind.Local).AddTicks(4196) });
         }
     }
 }

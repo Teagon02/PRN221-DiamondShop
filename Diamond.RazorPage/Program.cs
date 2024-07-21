@@ -16,14 +16,11 @@ builder.Services.AddDbContext<DiamondDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DiamondConnection"));
 });
-builder.Services.AddDbContext<AuthDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("AuthConnection"));
-});
+
 
 //config Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<AuthDbContext>();
+    .AddEntityFrameworkStores<DiamondDbContext>();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {
