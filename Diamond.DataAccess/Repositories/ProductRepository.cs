@@ -66,13 +66,13 @@ namespace Diamond.DataAccess.Repositories
             };
         }
 
-        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm, int? categoryid)
+        public PagedResult<Product> GetAll_02(int page, int pageSize, string searchTerm, int? categoryid )
         {
             var query = _dbContext.Products.Where(p => p.Status == true).Include(p => p.Category)
                 .Include(p => p.Images).AsQueryable();
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                query = query.Where(p => p.Name.Contains(searchTerm) || p.Category.CategoryName.Contains(searchTerm));
+                query = query.Where(p => p.Name.ToLower().Contains(searchTerm) || p.Category.CategoryName.ToLower().Contains(searchTerm));
             }
             if (categoryid.HasValue)
             {
@@ -107,6 +107,11 @@ namespace Diamond.DataAccess.Repositories
         public Product GetProductById(int? id)
         {
             return _dbContext.Products.Find(id);
+        }
+
+        public async Task<int> GetProductCountAsync()
+        {
+            return await _dbContext.Products.CountAsync();
         }
 
         public PagedResult<Product> GetProductsByCategory(int categoryId, int pageIndex, int pageSize)

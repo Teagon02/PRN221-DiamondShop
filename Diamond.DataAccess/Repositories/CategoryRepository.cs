@@ -68,6 +68,11 @@ namespace Diamond.DataAccess.Repositories
             };
         }
 
+        public async Task<int> GetCategoryCountAsync()
+        {
+            return await _db.Categories.CountAsync();
+        }
+
         public async Task SaveChangesAsync()
         {
             await _db.SaveChangesAsync();

@@ -17,5 +17,6 @@ namespace Diamond.DataAccess.IRepositories
         Task CreateAsync(Category category);
         Task DeleteAsync(Category category);
         Category Findid(int id);
+        Task<int> GetCategoryCountAsync();
     }
 }

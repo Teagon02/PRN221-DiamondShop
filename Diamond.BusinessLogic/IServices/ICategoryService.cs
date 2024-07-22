@@ -16,6 +16,7 @@ namespace Diamond.BusinessLogic.IServices
         PagedResult<Category> GetAllpage(int page, int pageSize , string searchTerm);
         Category Findid(int id);
         Task DeleteAsync(Category category);
+        Task<int> GetCategoryCountAsync();
         Task SaveChangesAsync();
     }
 }

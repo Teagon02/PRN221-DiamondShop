@@ -69,6 +69,11 @@ namespace Diamond.BusinessLogic.Services
             return _productrepo.GetProductById(id);
         }
 
+        public Task<int> GetProductCountAsync()
+        {
+            return _productrepo.GetProductCountAsync();
+        }
+
         public PagedResult<Product> GetProductsByCategory(int categoryId, int pageIndex, int pageSize)
         {
             return _productrepo.GetProductsByCategory(categoryId, pageIndex, pageSize);
