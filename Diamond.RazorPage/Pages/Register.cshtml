@@ -14,9 +14,9 @@
                 <form method="post">
 
                     <div class="mb-3">
-                        <label class="form-label">Username</label>
-                        <input type="text" class="form-control" asp-for="RegisterViewModel.Username" required />
-                        <span class="text-danger" asp-validation-for="RegisterViewModel.Username"></span>
+                        <label class="form-label">Phone</label>
+                        <input type="text" class="form-control" asp-for="RegisterViewModel.Phone" required />
+                        <span class="text-danger" asp-validation-for="RegisterViewModel.Phone"></span>
                     </div>
 
                     <div class="mb-3">
@@ -29,6 +29,11 @@
                         <label class="form-label">Password</label>
                         <input type="password" class="form-control" asp-for="RegisterViewModel.Password" required minlength="6" />
                         <span class="text-danger" asp-validation-for="RegisterViewModel.Password"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" asp-for="RegisterViewModel.ConfirmPassword" required minlength="6" />
+                        <span class="text-danger" asp-validation-for="RegisterViewModel.ConfirmPassword"></span>
                     </div>
 
                     <div class="mb-3">
