@@ -3,6 +3,7 @@ using Diamond.DataAccess.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Emit;
 
 namespace Diamond.DataAccess.Data
 {
@@ -17,6 +18,7 @@ namespace Diamond.DataAccess.Data
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<UserRole> UserRoles { get; set; }
         public DbSet<User> Users { get; set; }
@@ -28,6 +30,7 @@ namespace Diamond.DataAccess.Data
             var adminRoleId = "589465c3-7396-46a4-8bf0-40203342faae";
             var mannagerRoleId = "aa2cf69c-a91a-4967-ba8c-18b8f6d54f60";
             var customerRoleId = "a446eafe-5096-4d8c-889c-b4c92f5d6e63";
+
 
             // Seed Roles (User, Admin, Super Admin)
             var roles = new List<IdentityRole>

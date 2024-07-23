@@ -40,8 +40,11 @@ namespace Diamond.DataAccess.Models
         //FK 
         [ForeignKey(nameof(CategoryId))]
         public Category Category { get; set; }
-        public string PriceFormatted { get; set; } = string.Empty;  
+        public string PriceFormatted { get; set; } = string.Empty;
         // Navigation
+        public int? CartItemId { get; set; }
+        [ForeignKey(nameof(CartItemId))]
+        public CartItem? CartItem { get; set; }
         public ICollection<Image> Images { get; set; }
         public ICollection<Inventory> Inventories { get; set; }
         public ICollection<OrderItem> OrderItems { get; set; }

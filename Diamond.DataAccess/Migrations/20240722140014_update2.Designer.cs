@@ -4,6 +4,7 @@ using Diamond.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diamond.DataAccess.Migrations
 {
     [DbContext(typeof(DiamondDbContext))]
-    partial class DiamondDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240722140014_update2")]
+    partial class update2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,12 +32,8 @@ namespace Diamond.DataAccess.Migrations
                     b.Property<int>("Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Price")
-                        .HasColumnType("float");
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -79,40 +77,40 @@ namespace Diamond.DataAccess.Migrations
                         {
                             CategoryId = 1,
                             CategoryName = "Nhẫn kim cương",
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7135),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7145),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7602),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7617),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 2,
                             CategoryName = "Bông tai kim cương",
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7151),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7152),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7629),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7629),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 3,
                             CategoryName = "Lắc/Vòng tay kim cương",
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7154),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7155),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7631),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7631),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 4,
                             CategoryName = "Mặt dây chuyền kim cương",
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7157),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7158),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7633),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7634),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 5,
                             CategoryName = "Bộ trang sức kim cương",
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7160),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7161),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7635),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7636),
                             Description = "Description"
                         });
                 });
@@ -266,6 +264,9 @@ namespace Diamond.DataAccess.Migrations
                     b.Property<int?>("CartItemId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CartItemId1")
+                        .HasColumnType("int");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
@@ -322,6 +323,8 @@ namespace Diamond.DataAccess.Migrations
 
                     b.HasIndex("CartItemId");
 
+                    b.HasIndex("CartItemId1");
+
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
@@ -331,8 +334,8 @@ namespace Diamond.DataAccess.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7302),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7303),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7763),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7764),
                             Description = "Đây là mô tả",
                             GoldKarat = "18K",
                             GoldType = "Vàng trắng",
@@ -350,8 +353,8 @@ namespace Diamond.DataAccess.Migrations
                         {
                             ProductId = 2,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7307),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7308),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7767),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7768),
                             Description = "Đây là mô tả",
                             GoldKarat = "18K",
                             GoldType = "Vàng trắng",
@@ -369,8 +372,8 @@ namespace Diamond.DataAccess.Migrations
                         {
                             ProductId = 3,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7312),
-                            DateModified = new DateTime(2024, 7, 23, 12, 47, 12, 679, DateTimeKind.Local).AddTicks(7313),
+                            DateCreated = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7770),
+                            DateModified = new DateTime(2024, 7, 22, 21, 0, 13, 435, DateTimeKind.Local).AddTicks(7771),
                             Description = "Đây là mô tả",
                             GoldKarat = "18K",
                             GoldType = "Vàng trắng",
@@ -612,15 +615,15 @@ namespace Diamond.DataAccess.Migrations
                         {
                             Id = "c052ffb4-245b-4c3c-8390-f1bd806828e2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "19e28948-ab68-4a99-96ac-69aed12b196c",
+                            ConcurrencyStamp = "352906e4-39a1-441b-8747-91e5e2b9f115",
                             Email = "admin@gmail.com",
                             EmailConfirmed = false,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEDAMMbpwaFZZ+fV7VHXe/3rwtlAqa1ZyhNsT0I1u7UrWUr4eqtt8ZMVJvwg2hsfITQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAMoZt0RD6arYWz96XG/TjjxQr11XkCypwc8zccg7+0jU5m/r+EuqR9B1TMrk6BOxA==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5f828d1b-3769-41cf-b3ff-9d9218501088",
+                            SecurityStamp = "3edd2e53-6e2f-4759-b7ce-8b83e023ae40",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
@@ -801,8 +804,13 @@ namespace Diamond.DataAccess.Migrations
             modelBuilder.Entity("Diamond.DataAccess.Models.Product", b =>
                 {
                     b.HasOne("Diamond.DataAccess.Models.CartItem", "CartItem")
+                        .WithMany()
+                        .HasForeignKey("CartItemId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("Diamond.DataAccess.Models.CartItem", null)
                         .WithMany("Products")
-                        .HasForeignKey("CartItemId");
+                        .HasForeignKey("CartItemId1");
 
                     b.HasOne("Diamond.DataAccess.Models.Category", "Category")
                         .WithMany("Products")

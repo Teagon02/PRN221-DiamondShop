@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diamond.DataAccess.Models.enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace Diamond.DataAccess.Models
         public int OrderId { get; set; }
         public int UserId { get; set; }
         public double Total { get; set; }
+        public OrderStatus Status { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime? DateModified { get; set; }
         //FK

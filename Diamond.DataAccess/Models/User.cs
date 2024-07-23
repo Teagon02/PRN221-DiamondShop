@@ -20,7 +20,6 @@ namespace Diamond.DataAccess.Models
         //Navigation
         public ICollection<UserRole> UserRoles { get; set; }
         public ICollection<Order> Orders { get; set; }
-
-
+        public CartItem CartItem { get; set; }
     }
 }
