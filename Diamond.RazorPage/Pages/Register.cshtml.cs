@@ -44,11 +44,11 @@ namespace Diamond.RazorPage.Pages
 
                     if (addRolesResult.Succeeded)
                     {
-                        TempData["Notification"] = new Notification
-                        {
-                            Type = DataAccess.Models.enums.NotificationType.Success,
-                            Message = "User registered successfully, Please check your email to confirm your accout"
-                        };
+                        //TempData["Notification"] = new Notification
+                        //{
+                        //    Type = DataAccess.Models.enums.NotificationType.Success,
+                        //    Message = "User registered successfully, Please check your email to confirm your accout"
+                        //};
 
                     }
                     var confirmLink = Url.PageLink(pageName: "/ConfirmEmail", values: new { userId = user.Id, token = tokenConfirm });
