@@ -41,9 +41,6 @@ builder.Services.AddTransient<IProductService, ProductService>();
 
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
-
-builder.Services.AddTransient<ICartItemService, CartItemService>();
-builder.Services.AddTransient<ICartItemRepository, CartItemRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

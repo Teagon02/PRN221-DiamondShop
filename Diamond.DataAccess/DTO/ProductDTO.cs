@@ -11,7 +11,6 @@ namespace Diamond.DataAccess.DTO
 {
     public class ProductDTO
     {
-       
         public int CategoryId { get; set; }
         [Required(ErrorMessage = "Name is required.")]
         public string Name { get; set; }

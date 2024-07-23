@@ -1,0 +1,39 @@
+﻿@page
+@model Diamond.RazorPage.Pages.OrderPage.OrderModel
+@{
+    ViewData["Title"] = "Order";
+}
+<h1>Order Details</h1>
+
+<h2>Customer Information</h2>
+<div>
+    <p><strong>Name:</strong> @Model.Order.CustomerName</p>
+    <p><strong>Email:</strong> @Model.Order.CustomerEmail</p>
+    <p><strong>Phone:</strong> @Model.Order.CustomerPhone</p>
+    <p><strong>Address:</strong> @Model.Order.CustomerAddress</p>
+</div>
+
+<h2>Order Information</h2>
+<p><strong>Order Date:</strong> @Model.Order.DateCreated</p>
+<p><strong>Total:</strong> @Model.Order.Total</p>
+
+<h2>Products</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Order.OrderItems)
+        {
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
