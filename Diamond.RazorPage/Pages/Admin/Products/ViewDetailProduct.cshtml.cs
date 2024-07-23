@@ -102,7 +102,7 @@ namespace Diamond.RazorPage.Pages.Admin.Products
 
             // Set success message and redirect
             SuccessMessage = "Product updated successfully";
-            Response.Redirect("/Admin/Products/ListProducts ");
+            Response.Redirect("/Admin/Products/ListProducts");
         }
 
 
