@@ -40,26 +40,26 @@ namespace Diamond.RazorPage.Pages.Views.Dashboard
             CategoryCount = await _categoryService.GetCategoryCountAsync();
             Progress = new ProgressModel
             {
-                LessThanOneHour = CalculateProgress(UserCount),
-                OneToThreeHours = CalculateProgress(ProductCount),
-                MoreThanThreeHours = CalculateProgress(CategoryCount),
-                MoreThanSixHours = CalculateProgress(UserCount + ProductCount + CategoryCount)
+                LessThanOneHour = CalculateProgress(UserCount, ProductCount, CategoryCount, 1),
+                OneToThreeHours = CalculateProgress(UserCount, ProductCount, CategoryCount, 3),
+                MoreThanThreeHours = CalculateProgress(UserCount, ProductCount, CategoryCount, 6),
+                MoreThanSixHours = CalculateProgress(UserCount, ProductCount, CategoryCount, 24)
             };
         }
 
-        private int CalculateProgress(int count)
+        private int CalculateProgress(int userCount, int productCount, int categoryCount, int hours)
         {
-          
-            if (count < 100)
-                return 20;
-            else if (count < 200)
-                return 40;
-            else if (count < 300)
-                return 60;
-            else if (count < 400)
-                return 80;
+            // ?ây là logic ví d? ?? tính toán ti?n ?? công vi?c d?a trên s? l??ng ng??i dùng m?i, s?n ph?m m?i và danh m?c m?i
+            int totalTasks = userCount + productCount + categoryCount;
+
+            if (hours <= 1)
+                return (int)((double)userCount / totalTasks * 100);
+            else if (hours <= 3)
+                return (int)((double)productCount / totalTasks * 100);
+            else if (hours <= 6)
+                return (int)((double)categoryCount / totalTasks * 100);
             else
-                return 100;
+                return (int)((double)(userCount + productCount + categoryCount) / totalTasks * 100);
         }
     }
 }
