@@ -46,6 +46,9 @@ builder.Services.AddTransient<IProductService, ProductService>();
 
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<ICategoryRepository, CategoryRepository>();
+builder.Services.AddTransient<ICartService, CartService>();
+builder.Services.AddHttpContextAccessor();
+
 //config Mail
 builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 builder.Services.AddTransient<IMailService, EmailService>();

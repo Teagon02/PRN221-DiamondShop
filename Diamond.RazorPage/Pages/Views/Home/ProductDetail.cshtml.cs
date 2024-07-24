@@ -12,14 +12,17 @@ namespace Diamond.RazorPage.Pages.Views.Home
     {
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
-        public PagedResult<Product> PageProducts { get; set; }
+        private readonly ICartService _cartService;
+        public PagedResult<Product> PageProducts
+        { get; set; }
         public int CurrentPage { get; set; }
         public int PageSize { get; set; } = 6;
 
-        public ProductDetailModel(IProductService productService, ICategoryService categoryService)
+        public ProductDetailModel(IProductService productService, ICategoryService categoryService, ICartService cartService)
         {
             _productService = productService;
             _categoryService = categoryService;
+            _cartService = cartService;
         }
 
         [BindProperty]
@@ -46,6 +49,7 @@ namespace Diamond.RazorPage.Pages.Views.Home
 
             ProductDTO = new ProductDTO()
             {
+                ProductId = product.ProductId,
                 Name = product.Name,
                 Description = product.Description,
                 MainStoneSize = product.MainStoneSize,
@@ -80,6 +84,11 @@ namespace Diamond.RazorPage.Pages.Views.Home
         {
             CultureInfo culture = new CultureInfo("vi-VN");
             return string.Format(culture, "{0:#,##0}", price);
+        }
+        public async Task<IActionResult> OnPostAddToCartAsync(int productId, int quantity)
+        {
+            await _cartService.AddToCartAsync(productId, quantity);
+            return RedirectToPage();
         }
     }
 }
