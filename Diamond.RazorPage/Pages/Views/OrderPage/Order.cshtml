@@ -5,35 +5,88 @@
 }
 <h1>Order Details</h1>
 
-<h2>Customer Information</h2>
-<div>
-    <p><strong>Name:</strong> @Model.Order.CustomerName</p>
-    <p><strong>Email:</strong> @Model.Order.CustomerEmail</p>
-    <p><strong>Phone:</strong> @Model.Order.CustomerPhone</p>
-    <p><strong>Address:</strong> @Model.Order.CustomerAddress</p>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">Order Details</h1>
+        <p class="lead text-muted">Review the details of your order.</p>
+    </div>
+</section>
+
+<div class="container py-3">
+    <div class="row">
+        <div class="col-12">
+            @if (Model.Order == null)
+            {
+                <p class="text-center lead">Order not found.</p>
+            }
+            else
+            {
+                <div class="card">
+                    <div class="card-header">
+                        Order #@Model.Order.OrderId
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Order Summary</h5>
+                        <p class="card-text">Order Date: @Model.Order.DateCreated.ToString("dd/MM/yyyy")</p>
+                        <p class="card-text">Status: @Model.Order.Status</p>
+                        <p class="card-text">Total: @Model.Order.Total.ToString("C")</p>
+                        <h5 class="mt-4">Items</h5>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Order.OrderItems)
+                                {
+                                    <tr>
+                                        <td>@item.Product.Name</td>
+                                        <td>@item.Quantity</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer text-right">
+                        <a href="/Orders" class="btn btn-secondary">Back to Orders</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
 </div>
 
-<h2>Order Information</h2>
-<p><strong>Order Date:</strong> @Model.Order.DateCreated</p>
-<p><strong>Total:</strong> @Model.Order.Total</p>
+<style>
+    .card {
+        border: none;
+        border-radius: .25rem;
+    }
 
-<h2>Products</h2>
-<table class="table">
-    <thead>
-        <tr>
-            <th>Product Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Order.OrderItems)
-        {
-            <tr>
-                <td>@item.ProductName</td>
-                <td>@item.Quantity</td>
-                <td>@item.Price</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    .card-body {
+        padding: 1.5rem;
+        background-color: #ffffff;
+    }
+
+    .card-title {
+        font-family: 'Lora', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #343a40;
+    }
+
+    .card-text {
+        font-family: 'Lora', serif;
+        font-size: 1rem;
+        color: #495057;
+    }
+
+    .display-4 {
+        font-family: 'Lora', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+</style>
