@@ -1,0 +1,70 @@
+﻿@page
+@model Diamond.RazorPage.Pages.Views.OrderPage.UpdateOrderModel
+@{
+    ViewData["Title"] = "Update Order";
+}
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="display-4">Update Order</h1>
+        <p class="lead text-muted">Update the order details.</p>
+    </div>
+</section>
+
+<div class="container py-3">
+    <div class="row">
+        <div class="col-12">
+            <form method="post">
+                <div class="form-group">
+                    <label for="UserId">User</label>
+                    <select asp-for="Order.UserId" class="form-control" asp-items="Model.Users">
+                        <option value="">Select User</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Total">Total</label>
+                    <input type="number" step="0.01" asp-for="Order.Total" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Status">Status</label>
+                    <select asp-for="Order.Status" class="form-control" asp-items="Html.GetEnumSelectList<OrderStatus>()">
+                        <option value="">Select Status</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Order</button>
+                <a asp-page="/Orders" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: none;
+        border-radius: .25rem;
+    }
+
+    .card-body {
+        padding: 1.5rem;
+        background-color: #ffffff;
+    }
+
+    .card-title {
+        font-family: 'Lora', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #343a40;
+    }
+
+    .card-text {
+        font-family: 'Lora', serif;
+        font-size: 1rem;
+        color: #495057;
+    }
+
+    .display-4 {
+        font-family: 'Lora', serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+</style>

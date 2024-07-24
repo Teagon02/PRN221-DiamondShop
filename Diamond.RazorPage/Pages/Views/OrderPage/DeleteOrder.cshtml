@@ -1,14 +1,13 @@
 ﻿@page
-@model Diamond.RazorPage.Pages.OrderPage.OrderModel
+@model Diamond.RazorPage.Pages.Views.OrderPage.DeleteOrderModel
 @{
-    ViewData["Title"] = "Order";
+    ViewData["Title"] = "Delete Order";
 }
-<h1>Order Details</h1>
 
 <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="display-4">Order Details</h1>
-        <p class="lead text-muted">Review the details of your order.</p>
+        <h1 class="display-4">Delete Order</h1>
+        <p class="lead text-muted">Are you sure you want to delete this order?</p>
     </div>
 </section>
 
@@ -46,13 +45,18 @@
                                     <tr>
                                         <td>@item.Product.Name</td>
                                         <td>@item.Quantity</td>
+                                        <td>@item.Price.ToString("C")</td>
+                                        <td>@(item.Quantity * item.Price).ToString("C")</td>
                                     </tr>
                                 }
                             </tbody>
                         </table>
                     </div>
                     <div class="card-footer text-right">
-                        <a href="/Orders" class="btn btn-secondary">Back to Orders</a>
+                        <form method="post">
+                            <button type="submit" class="btn btn-danger">Delete Order</button>
+                            <a asp-page="/Orders" class="btn btn-secondary">Cancel</a>
+                        </form>
                     </div>
                 </div>
             }
