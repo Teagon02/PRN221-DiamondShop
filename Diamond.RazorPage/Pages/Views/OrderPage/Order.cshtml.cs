@@ -60,7 +60,6 @@ namespace Diamond.RazorPage.Pages.OrderPage
             public double Total { get; set; }
             public DateTime DateCreated { get; set; }
         }
-
         public class OrderItemViewModel
         {
             public string ProductName { get; set; }
