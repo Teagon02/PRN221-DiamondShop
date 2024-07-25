@@ -4,20 +4,20 @@
 }
 
 <h1>Shopping Cart</h1>
+@if (Model.CartItems != null && Model.CartItems.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model.CartItems != null)
-        {
             @foreach (var item in Model.CartItems)
             {
                 <tr>
@@ -30,7 +30,7 @@
                             <button type="submit" asp-page-handler="Update" class="btn btn-secondary">Update</button>
                         </form>
                     </td>
-                    <td>@(item.Product.Price * item.Quantity).ToString("C")</td>
+                    <td>@(item.Product.Price * item.Quantity)</td>
                     <td>
                         <form method="post">
                             <input type="hidden" name="cartItemId" value="@item.CartItemId" />
@@ -39,18 +39,28 @@
                     </td>
                 </tr>
             }
-        }else{
-            <H5>Not Found Any </H5>
 
-        }
+            <h2>Total: @Model.CartTotal</h2>
 
-        
-            
-            
-          
-          
+           
 
-    </tbody>
-</table>
 
-<h2>Total: @Model.CartTotal.ToString("C")</h2>
+
+
+
+
+
+
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>Your Cart is Empty</h3>
+}
+<div class="card-footer">
+    <div class="col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6">
+        <a asp-page="Summary" class="btn btn-success form-control">Summary</a>
+    </div>
+</div>
+

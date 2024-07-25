@@ -161,6 +161,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/Views/Contact/Contact"><i class="bi bi-person-rolodex"></i> CONTACT</a>
                         </li>
+ 
                     </ul>
                     <ul class="navbar-nav" style="margin-left:auto">
                         @if (signInManager.IsSignedIn(User))
@@ -171,7 +172,7 @@
                                 </button>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Profile</a></li>
-                                    <li><a class="dropdown-item" href="#"><i class="bi bi-cart4"></i> My Carts</a></li>
+                                    <li><a class="dropdown-item" href="/Views/Cart/Index"><i class="bi bi-cart4"></i> My Carts</a></li>
                                     <li><a class="dropdown-item" href="/Logout"><i class="bi bi-box-arrow-left"></i> Log out</a></li>
                                 </ul>
                             </li>

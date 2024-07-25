@@ -23,6 +23,7 @@ namespace Diamond.RazorPage.Pages.Views.Home
             _productService = productService;
             _categoryService = categoryService;
             _cartService = cartService;
+            Product = new Product();
         }
 
         [BindProperty]
@@ -30,6 +31,7 @@ namespace Diamond.RazorPage.Pages.Views.Home
 
         public IList<Category> Categories { get; set; } // Initialize this properly
 
+        [BindProperty]
         public Product Product { get; set; }
         public IList<Product> Products { get; private set; }
         public Category Category { get; private set; }

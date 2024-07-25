@@ -4,6 +4,7 @@ using Diamond.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Diamond.DataAccess.Migrations
 {
     [DbContext(typeof(DiamondDbContext))]
-    partial class DiamondDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240724090115_addAddressCustomerOrder")]
+    partial class addAddressCustomerOrder
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -80,40 +82,40 @@ namespace Diamond.DataAccess.Migrations
                         {
                             CategoryId = 1,
                             CategoryName = "Nhẫn kim cương",
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2857),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2870),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(765),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(776),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 2,
                             CategoryName = "Bông tai kim cương",
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2874),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2874),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(780),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(781),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 3,
                             CategoryName = "Lắc/Vòng tay kim cương",
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2875),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2875),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(781),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(782),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 4,
                             CategoryName = "Mặt dây chuyền kim cương",
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2876),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2876),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(783),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(783),
                             Description = "Description"
                         },
                         new
                         {
                             CategoryId = 5,
                             CategoryName = "Bộ trang sức kim cương",
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2877),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2877),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(783),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(784),
                             Description = "Description"
                         });
                 });
@@ -355,8 +357,8 @@ namespace Diamond.DataAccess.Migrations
                         {
                             ProductId = 1,
                             CategoryId = 2,
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2937),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2937),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(844),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(845),
                             Description = "Đây là mô tả",
                             GoldKarat = "18K",
                             GoldType = "Vàng trắng",
@@ -374,8 +376,8 @@ namespace Diamond.DataAccess.Migrations
                         {
                             ProductId = 2,
                             CategoryId = 1,
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2939),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2940),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(847),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(847),
                             Description = "Đây là mô tả",
                             GoldKarat = "18K",
                             GoldType = "Vàng trắng",
@@ -393,8 +395,8 @@ namespace Diamond.DataAccess.Migrations
                         {
                             ProductId = 3,
                             CategoryId = 4,
-                            DateCreated = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2941),
-                            DateModified = new DateTime(2024, 7, 24, 16, 22, 21, 241, DateTimeKind.Local).AddTicks(2941),
+                            DateCreated = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(848),
+                            DateModified = new DateTime(2024, 7, 24, 16, 1, 15, 589, DateTimeKind.Local).AddTicks(848),
                             Description = "Đây là mô tả",
                             GoldKarat = "18K",
                             GoldType = "Vàng trắng",
@@ -636,15 +638,15 @@ namespace Diamond.DataAccess.Migrations
                         {
                             Id = "c052ffb4-245b-4c3c-8390-f1bd806828e2",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "dda157f7-fee6-4002-aecb-1b28664af67f",
+                            ConcurrencyStamp = "26e40e71-920e-434c-9594-5ec8d886eb70",
                             Email = "admin@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@GMAIL.COM",
                             NormalizedUserName = "ADMIN@GMAIL.COM",
-                            PasswordHash = "AQAAAAEAACcQAAAAEKpu/n5YR7mTqCIx1SInMVe5QQ9OX23E7rEVxhl6Sv0ZUmI2HKRiBBkUGWXOSOG50Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEi/Iie4axAmKl4GWgNa0wX4IsdhNyhIZZEHL6nXUHhxdw/dP7CJBVCAAtaNA8M0/A==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "8cbcc4cb-3060-49d7-bcfa-777ecefb2b15",
+                            SecurityStamp = "e2069ce0-ba0d-4c05-b1c8-86cd0e07d63f",
                             TwoFactorEnabled = false,
                             UserName = "admin@gmail.com"
                         });
