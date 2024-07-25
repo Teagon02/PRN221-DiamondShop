@@ -57,6 +57,8 @@ IHttpContextAccessor httpContextAccessor)
 
         }
 
+     
+
         public string GetUserId()
         {
             return _userManager.GetUserId(_httpContextAccessor.HttpContext.User);

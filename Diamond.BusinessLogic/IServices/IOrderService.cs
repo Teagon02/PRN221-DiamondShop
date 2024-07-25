@@ -7,6 +7,7 @@ namespace Diamond.BusinessLogic.IServices
         string GetUserId();
         Task CreateOrderAsync(List<CartItem> cartItems, Order order);
         Task ClearCartAsync();
+       
 
     }
 }

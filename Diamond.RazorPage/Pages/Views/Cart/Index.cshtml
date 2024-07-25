@@ -1,66 +1,60 @@
 ﻿@page
 @model Diamond.RazorPage.Pages.Views.Cart.IndexModel
 @{
+    Layout = "_Layout";
 }
 
-<h1>Shopping Cart</h1>
-@if (Model.CartItems != null && Model.CartItems.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Shopping Cart</h1>
 
-            @foreach (var item in Model.CartItems)
-            {
+    @if (Model.CartItems != null && Model.CartItems.Any())
+    {
+        <table class="table table-hover">
+            <thead class="thead-dark">
                 <tr>
-                    <td>@item.Product.Name</td>
-                    <td>@item.Product.Price.ToString("C")</td>
-                    <td>
-                        <form method="post">
-                            <input type="hidden" name="cartItemId" value="@item.CartItemId" />
-                            <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control" />
-                            <button type="submit" asp-page-handler="Update" class="btn btn-secondary">Update</button>
-                        </form>
-                    </td>
-                    <td>@(item.Product.Price * item.Quantity)</td>
-                    <td>
-                        <form method="post">
-                            <input type="hidden" name="cartItemId" value="@item.CartItemId" />
-                            <button type="submit" asp-page-handler="Remove" class="btn btn-danger">Remove</button>
-                        </form>
-                    </td>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Total</th>
+                    <th scope="col"></th>
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var item in Model.CartItems)
+                {
+                    <tr>
+                        <td>@item.Product.Name</td>
+                        <td>@item.Product.Price vnđ</td>
+                        <td>
+                            <form method="post" class="form-inline">
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control mr-2" style="width: 60px;" />
+                                <button type="submit" asp-page-handler="Update" class="btn btn-secondary btn-sm">Update</button>
+                            </form>
+                        </td>
+                        <td>@(item.Product.Price * item.Quantity) vnđ</td>
+                        <td>
+                            <form method="post">
+                                <input type="hidden" name="cartItemId" value="@item.CartItemId" />
+                                <button type="submit" asp-page-handler="Remove" class="btn btn-danger btn-sm">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
 
-            <h2>Total: @Model.CartTotal</h2>
-
-           
-
-
-
-
-
-
-
-
-        </tbody>
-    </table>
-}
-else
-{
-    <h3>Your Cart is Empty</h3>
-}
-<div class="card-footer">
-    <div class="col-12 col-lg-4 offset-lg-8 col-md-6 offset-md-6">
-        <a asp-page="Summary" class="btn btn-success form-control">Summary</a>
-    </div>
+        <div class="row mt-4">
+            <div class="col-md-6 offset-md-6">
+                <h4>Total: @Model.CartTotal vnđ</h4>
+                <a asp-page="Summary" class="btn btn-success btn-block mt-3">Proceed to Summary</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-warning text-center" role="alert">
+            Your Cart is Empty
+        </div>
+    }
 </div>
-

@@ -82,6 +82,9 @@ namespace Diamond.DataAccess.Repositories
             };
         }
 
-
+        public async Task<int> GetUerCount()
+        {
+            return await _dbContext.Users.CountAsync();
+        }
     }
 }

@@ -37,6 +37,7 @@
             .contact-form .form-control {
                 border-radius: 5px;
                 margin-bottom: 15px;
+                width: 100%;
             }
 
             .contact-form .btn {
@@ -52,6 +53,11 @@
                     background-color: #00332a;
                     color: white;
                 }
+
+        .form-control-message {
+            height: 150px;
+            resize: none;
+        }
     </style>
 </head>
 <body>
@@ -68,7 +74,7 @@
                             <input class="form-control" asp-for="Email" placeholder="Your Email" />
                         </div>
                         <div class="form-group">
-                            <input class="form-control" asp-for="Message" placeholder="Your Message" />
+                            <textarea class="form-control form-control-message" asp-for="Message" placeholder="Your Message"></textarea>
                         </div>
                         <button type="submit" class="btn">Send</button>
                     </form>

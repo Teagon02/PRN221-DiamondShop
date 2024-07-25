@@ -17,5 +17,6 @@ namespace Diamond.BusinessLogic.IServices
         Category Findid(int id);
         Task DeleteAsync(Category category);
         Task SaveChangesAsync();
+        Task<int> GetCategoryCount();
     }
 }

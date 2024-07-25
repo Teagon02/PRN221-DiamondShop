@@ -44,6 +44,11 @@ namespace Diamond.BusinessLogic.Services
             return page1;
         }
 
+        public async Task<int> GetCategoryCount()
+        {
+           return await _repository.GetCategoryCount();
+        }
+
         public async Task SaveChangesAsync()
         {
             await _repository.SaveChangesAsync();

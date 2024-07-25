@@ -56,5 +56,10 @@ namespace Diamond.BusinessLogic.Services
             var page1 = _userRepository.GetAllPage(page, pageSize,searchTerm);
             return page1;
         }
+
+        public async Task<int> GetUserCount()
+        {
+            return await _userRepository.GetUerCount();
+        }
     }
 }

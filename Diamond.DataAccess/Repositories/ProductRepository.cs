@@ -109,6 +109,11 @@ namespace Diamond.DataAccess.Repositories
             return _dbContext.Products.Find(id);
         }
 
+        public async Task<int> GetProductCount()
+        {
+            return await _dbContext.Products.CountAsync();  
+        }
+
         public PagedResult<Product> GetProductsByCategory(int categoryId, int pageIndex, int pageSize)
         {
             var query = _dbContext.Products

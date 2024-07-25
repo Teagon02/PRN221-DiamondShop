@@ -1,46 +1,90 @@
 ﻿@page
 @model Diamond.RazorPage.Pages.RegisterModel
 @{
+    Layout = "_Layout";
 }
 
-<div class="container mx-auto">
+<div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-md-8 col-lg-6">
+            <div class="card shadow-lg">
+                <div class="card-body p-5">
+                    <h1 class="h3 text-center mb-4">Create Your Account</h1>
+                    <p class="text-center text-muted mb-5">Join us and enjoy exclusive offers</p>
 
-            <h1 class="mt-5 mb-3 h3">Register</h1>
+                    <partial name="_Notification" />
 
-            <partial name="_Notification">
+                    <form method="post">
+                        <div class="mb-4">
+                            <label class="form-label">Phone</label>
+                            <input type="text" class="form-control" asp-for="RegisterViewModel.Phone" required placeholder="Enter your phone number" />
+                            <span class="text-danger" asp-validation-for="RegisterViewModel.Phone"></span>
+                        </div>
 
-                <form method="post">
+                        <div class="mb-4">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control" asp-for="RegisterViewModel.Email" required placeholder="Enter your email" />
+                            <span class="text-danger" asp-validation-for="RegisterViewModel.Email"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Phone</label>
-                        <input type="text" class="form-control" asp-for="RegisterViewModel.Phone" required />
-                        <span class="text-danger" asp-validation-for="RegisterViewModel.Phone"></span>
-                    </div>
+                        <div class="mb-4">
+                            <label class="form-label">Password</label>
+                            <input type="password" class="form-control" asp-for="RegisterViewModel.Password" required minlength="6" placeholder="Enter your password" />
+                            <span class="text-danger" asp-validation-for="RegisterViewModel.Password"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" asp-for="RegisterViewModel.Email" required />
-                        <span class="text-danger" asp-validation-for="RegisterViewModel.Email"></span>
-                    </div>
+                        <div class="mb-4">
+                            <label class="form-label">Confirm Password</label>
+                            <input type="password" class="form-control" asp-for="RegisterViewModel.ConfirmPassword" required minlength="6" placeholder="Confirm your password" />
+                            <span class="text-danger" asp-validation-for="RegisterViewModel.ConfirmPassword"></span>
+                        </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Password</label>
-                        <input type="password" class="form-control" asp-for="RegisterViewModel.Password" required minlength="6" />
-                        <span class="text-danger" asp-validation-for="RegisterViewModel.Password"></span>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Confirm Password</label>
-                        <input type="password" class="form-control" asp-for="RegisterViewModel.ConfirmPassword" required minlength="6" />
-                        <span class="text-danger" asp-validation-for="RegisterViewModel.ConfirmPassword"></span>
-                    </div>
-
-                    <div class="mb-3">
-                        <button type="submit" class="btn bg-dark text-light">Register</button>
-                    </div>
-
-                </form>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-dark btn-block">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- Custom CSS -->
+<style>
+    body {
+        background-color: #f4f4f9;
+    }
+
+    .card {
+        border: none;
+        border-radius: 1rem;
+    }
+
+    .btn-dark {
+        background-color: #343a40;
+        border: none;
+    }
+
+        .btn-dark:hover {
+            background-color: #23272b;
+        }
+
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        border: 2px solid #ced4da;
+        border-radius: 0.5rem;
+    }
+
+        .form-control:focus {
+            border-color: #343a40;
+            box-shadow: none;
+        }
+
+    .card-body {
+        background-color: #fff;
+        border-radius: 1rem;
+    }
+</style>

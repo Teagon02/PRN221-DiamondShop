@@ -84,12 +84,12 @@
 												<h6 class="my-0">@detail.Product.Name</h6>
 												<small class="text-muted">Quantity: @detail.Quantity</small>
 										</div>
-											<span class="text-muted">$@(detail.Product.Price * @detail.Quantity)</span>
+											<span class="text-muted">@(detail.Product.Price * @detail.Quantity) vnđ</span>
 									</li>
 									}
 									<li class="list-group-item d-flex justify-content-between bg-light">
-										<small class="text-info">Total (USD)</small>
-										<strong class="text-info">$@Model.OrderHeader.Total.ToString("0.00")</strong>
+										<small class="text-info">Total (VND)</small>
+										<strong class="text-info">@Model.OrderHeader.Total vnđ</strong>
 									</li>
 								</ul>
 							</div>
